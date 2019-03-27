@@ -7,7 +7,8 @@ export default class AuctionItem extends Component {
     this.state = {
       AuktionID: null,
       Utropspris: null,
-      Titel: null
+      Titel: null,
+      SkapadAv: null,
     };
   }
 
@@ -19,6 +20,7 @@ export default class AuctionItem extends Component {
           AuktionID: data[0].AuktionID,
           Titel: data[0].Titel,
           Utropspris: data[0].Utropspris,
+          SkapadAv: data[0].SkapadAv,
         });
       });
     console.log("mounted");
@@ -28,6 +30,7 @@ export default class AuctionItem extends Component {
     return <React.Fragment>
       <h1>{this.state.Titel}</h1>
       <p>{this.state.Utropspris}</p>
+      <p>{this.state.SkapadAv}</p>
     </React.Fragment>;
   }
 }
