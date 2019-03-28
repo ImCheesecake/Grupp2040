@@ -13,7 +13,7 @@ export default class AuctionItem extends Component {
   }
 
   componentDidMount() {
-    fetch("http://nackowskis.azurewebsites.net/api/Auktion/1000/")
+    fetch("http://nackowskis.azurewebsites.net/api/Auktion/2040/")
       .then(resp => resp.json())
       .then(data => {
         this.setState({
