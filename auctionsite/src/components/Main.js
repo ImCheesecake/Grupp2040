@@ -7,14 +7,25 @@ export default class Main extends Component {
       fontFamily: "Montserrat",
       fontSize: "4em"
     };
+<<<<<<< HEAD
+    let headerStyle = {
+      width: "100%",
+      display: "flex",
+      justifyContent: "center"
+    }
+=======
     
+>>>>>>> master
     return (
       <React.Fragment>
-        <h1 style={testStyle}>Auction Site</h1>
-        <form>
-          <input type="text" />
-          <button type="submit">Search</button>
-        </form>
+        
+          <h1 style={testStyle}>Auction Site</h1>
+          <div style={headerStyle}>
+            <form>
+              <input type="text" />
+              <button type="submit">Search</button>
+            </form>
+          </div>
       </React.Fragment>
     );
   }
