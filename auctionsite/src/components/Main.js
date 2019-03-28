@@ -7,6 +7,7 @@ export default class Main extends Component {
       fontFamily: "Montserrat",
       fontSize: "4em"
     };
+    
     return (
       <React.Fragment>
         <h1 style={testStyle}>Auction Site</h1>
