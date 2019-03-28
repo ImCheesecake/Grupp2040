@@ -5,10 +5,7 @@ export default class AuctionItem extends Component {
     super(props);
 
     this.state = {
-      AuktionID: null,
-      Utropspris: null,
-      Titel: null,
-      SkapadAv: null,
+      Auctions: []
     };
   }
 
@@ -17,20 +14,21 @@ export default class AuctionItem extends Component {
       .then(resp => resp.json())
       .then(data => {
         this.setState({
-          AuktionID: data[0].AuktionID,
-          Titel: data[0].Titel,
-          Utropspris: data[0].Utropspris,
-          SkapadAv: data[0].SkapadAv,
+          Auctions: data
         });
       });
     console.log("mounted");
   }
 
   render() {
-    return <React.Fragment>
-      <h1>{this.state.Titel}</h1>
-      <p>{this.state.Utropspris}</p>
-      <p>{this.state.SkapadAv}</p>
-    </React.Fragment>;
+    let auctionList = this.state.Auctions.map(item => {
+      return <div>{item.Titel}</div>;
+    });
+
+    return (
+      <React.Fragment>
+        <h1>{auctionList}</h1>
+      </React.Fragment>
+    );
   }
 }

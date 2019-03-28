@@ -7,11 +7,15 @@ export default class Main extends Component {
       fontFamily: "Montserrat",
       fontSize: "4em"
     };
+<<<<<<< HEAD
     let headerStyle = {
       width: "100%",
       display: "flex",
       justifyContent: "center"
     }
+=======
+    
+>>>>>>> master
     return (
       <React.Fragment>
         
