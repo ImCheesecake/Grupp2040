@@ -6,7 +6,7 @@ export default class Header extends Component {
   render() {
     return (
       <div>
-        <Search />
+        <Search updateAuctions = {this.props.updateAuctions}/>
         <AddAuction />
       </div>
     )

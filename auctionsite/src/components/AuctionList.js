@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 import AuctionItem from "./AuctionItem";
-import moment from "moment";
-import "moment-timezone";
-import "moment/locale/sv";
 
 export default class AuctionList extends Component {
   
@@ -14,17 +11,17 @@ export default class AuctionList extends Component {
       width: "40%",
       background: "red"
     }
-    let activeAuctions = this.props.Auctions.filter((item) => {
-      console.log(item.SlutDatum)
-      console.log(new Date())
-      console.log(moment(item.SlutDatum).toDate() > moment())
-      if(moment(item.SlutDatum).toDate() > moment())
-      {
-        return (item);
-      }
-      return null;
-    } );
-    let allAuctions = activeAuctions.map(item => <div key={item.AuktionID}><AuctionItem auctionItem = {item}/></div>);
+    // let activeAuctions = this.props.Auctions.filter((item) => {
+    //   console.log(item.SlutDatum)
+    //   console.log(new Date())
+    //   console.log(moment(item.SlutDatum).toDate() > moment())
+    //   if(moment(item.SlutDatum).toDate() > moment())
+    //   {
+    //     return (item);
+    //   }
+    //   return null;
+    // } );
+    let allAuctions = this.props.Auctions.map(item => <div key={item.AuktionID}><AuctionItem auctionItem = {item}/></div>);
 
     return (
       <div style={auctionListStyle}>
