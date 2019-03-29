@@ -55,7 +55,8 @@ class App extends Component {
           return (item);
         }
         return null;
-      } );
+      });
+
       this.setState({          
         AllAuctions: data,
         FilteredAuctions: activeAuctions

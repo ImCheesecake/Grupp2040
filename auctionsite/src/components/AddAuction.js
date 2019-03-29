@@ -44,8 +44,6 @@ export default class AddAuction extends Component {
       SkapadAv: this.state.SkapadAv
     };
 
-    console.log(newAuction);
-
     fetch(url, {
       method: "POST",
       body: JSON.stringify(newAuction),
@@ -54,45 +52,53 @@ export default class AddAuction extends Component {
         "Content-Type": "application/json"
       }
     }).then(function(data) {
-     console.log(data.body)
+      console.log(data.body)
     });
 
-    //this.props.addNewAuctionToList();
+
+    this.props.addNewAuctionToList();
+
     this.setState({
       StartDatum: null,
-      Titel: null,
-      Beskrivning: null,
+      Titel: "",
+      Beskrivning: "",
       SlutDatum: moment()
         .add(1, "days")
         .toDate(),
       Utropspris: 0,
-      SkapadAv: null
-    });
+      SkapadAv: ""
+    });             
+
   };
+
 
   render() {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
           <input
+            value={this.state.Titel}
             type="text"
             name="Titel"
             placeholder="Titel"
             onChange={this.handleChange}
           />
           <input
+            value={this.state.Beskrivning}
             type="text"
             name="Beskrivning"
             placeholder="Beskrivning"
             onChange={this.handleChange}
           />
           <input
+            value={this.state.Utropspris}
             type="number"
             name="Utropspris"
             placeholder="Utropspris"
             onChange={this.handleChange}
           />
           <input
+            value={this.state.SkapadAv}
             type="text"
             name="SkapadAv"
             placeholder="Skapad av"
