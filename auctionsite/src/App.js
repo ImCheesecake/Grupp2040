@@ -15,67 +15,61 @@ class App extends Component {
 
   addNewAuctionToList = () => {
     this.updateArrays();
-    
+
     // let newFilteredAuctions = [...this.state.FilteredAuctions, auction]
     // console.log(newFilteredAuctions)
     // this.setState({
     //   FilteredAuctions: newFilteredAuctions
     // })
-  }
+  };
 
-  updateAuctions = (searchAuction) => {
-    if(searchAuction)
-    {
-      let searchAuctions = this.state.AllAuctions.filter((item) => {
-        if(item.Titel.includes(searchAuction))
-        {
-          return item
-        }
-        return null
-      })
-      this.setState({
-        FilteredAuctions: searchAuctions
-      })
-    }
-    else
-    {
-      this.updateArrays();
-    }
-    
-  }
-
-  updateArrays = () => {
-
-    fetch("http://nackowskis.azurewebsites.net/api/Auktion/2040/")
-    .then(resp => resp.json())
-    .then(data => {
-      let activeAuctions = data.filter((item) => {
-        if(moment(item.SlutDatum).toDate() > moment())
-        {
-          return (item);
+  updateAuctions = searchAuction => {
+    if (searchAuction) {
+      let searchAuctions = this.state.AllAuctions.filter(item => {
+        if (item.Titel.includes(searchAuction)) {
+          return item;
         }
         return null;
       });
+      this.setState({
+        FilteredAuctions: searchAuctions
+      });
+    } else {
+      this.updateArrays();
+    }
+  };
 
-      this.setState({          
-        AllAuctions: data,
-        FilteredAuctions: activeAuctions
-      })    
-    }); 
-  }
+  updateArrays = () => {
+    fetch("http://nackowskis.azurewebsites.net/api/Auktion/2040/")
+      .then(resp => resp.json())
+      .then(data => {
+        let activeAuctions = data.filter(item => {
+          if (moment(item.SlutDatum).toDate() > moment()) {
+            return item;
+          }
+          return null;
+        });
 
+        this.setState({
+          AllAuctions: data,
+          FilteredAuctions: activeAuctions
+        });
+      });
+  };
 
   componentDidMount() {
-      this.updateArrays();        
+    this.updateArrays();
   }
-
 
   render() {
     return (
       <div>
-      <Main />
-        <Header updateAuctions = {this.updateAuctions} addNewAuctionToList={this.addNewAuctionToList}/>
-        <AuctionList Auctions={this.state.FilteredAuctions}/>
+        <Main />
+        <Header
+          updateAuctions={this.updateAuctions}
+          addNewAuctionToList={this.addNewAuctionToList}
+        />
+        <AuctionList Auctions={this.state.FilteredAuctions} />
         <DetailView />
       </div>
     );

@@ -8,13 +8,13 @@ import "react-datepicker/dist/react-datepicker.css";
 export default class AddAuction extends Component {
   state = {
     StartDatum: null,
-    Titel: null,
-    Beskrivning: null,
+    Titel: "",
+    Beskrivning: "",
     SlutDatum: moment()
       .add(1, "days")
       .toDate(),
     Utropspris: 0,
-    SkapadAv: null
+    SkapadAv: ""
   };
 
   handleDateChange = e => {
@@ -52,9 +52,8 @@ export default class AddAuction extends Component {
         "Content-Type": "application/json"
       }
     }).then(function(data) {
-      console.log(data.body)
+      console.log(data.body);
     });
-
 
     this.props.addNewAuctionToList();
 
@@ -67,10 +66,8 @@ export default class AddAuction extends Component {
         .toDate(),
       Utropspris: 0,
       SkapadAv: ""
-    });             
-
+    });
   };
-
 
   render() {
     return (
