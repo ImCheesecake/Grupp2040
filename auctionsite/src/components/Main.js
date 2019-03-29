@@ -8,7 +8,6 @@ export default class Main extends Component {
       fontSize: "4em"
     };
     let headerStyle = {
-      width: "100%",
       display: "flex",
       justifyContent: "center"
     }
