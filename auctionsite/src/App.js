@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Header from "./components/Header";
 import AuctionList from "./components/AuctionList";
 import DetailView from "./components/DetailView";
+import Main from "./components/Main";
 
 class App extends Component {
   state = {
@@ -21,6 +22,7 @@ class App extends Component {
   render() {
     return (
       <div>
+      <Main />
         <Header />
         <AuctionList Auctions={this.state.Auctions}/>
         <DetailView />
