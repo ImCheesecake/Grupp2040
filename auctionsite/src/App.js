@@ -13,6 +13,16 @@ class App extends Component {
     AllAuctions: []
   };
 
+  addNewAuctionToList = () => {
+    this.updateArrays();
+    
+    // let newFilteredAuctions = [...this.state.FilteredAuctions, auction]
+    // console.log(newFilteredAuctions)
+    // this.setState({
+    //   FilteredAuctions: newFilteredAuctions
+    // })
+  }
+
   updateAuctions = (searchAuction) => {
     if(searchAuction)
     {
@@ -36,33 +46,26 @@ class App extends Component {
 
   updateArrays = () => {
 
-      let activeAuctions = this.state.AllAuctions.filter((item) => {
+    fetch("http://nackowskis.azurewebsites.net/api/Auktion/2040/")
+    .then(resp => resp.json())
+    .then(data => {
+      let activeAuctions = data.filter((item) => {
         if(moment(item.SlutDatum).toDate() > moment())
         {
           return (item);
         }
         return null;
       } );
-
-      this.setState({
-        FilteredAuctions: activeAuctions        
-      });
+      this.setState({          
+        AllAuctions: data,
+        FilteredAuctions: activeAuctions
+      })    
+    }); 
   }
 
 
   componentDidMount() {
-    
-    fetch("http://nackowskis.azurewebsites.net/api/Auktion/2040/")
-      .then(resp => resp.json())
-      .then(data => {
-        console.log(data)
-        this.setState({          
-          AllAuctions: data
-        })
-        this.updateArrays();
-
-        });   
-   
+      this.updateArrays();        
   }
 
 
@@ -70,7 +73,7 @@ class App extends Component {
     return (
       <div>
       <Main />
-        <Header updateAuctions = {this.updateAuctions}/>
+        <Header updateAuctions = {this.updateAuctions} addNewAuctionToList={this.addNewAuctionToList}/>
         <AuctionList Auctions={this.state.FilteredAuctions}/>
         <DetailView />
       </div>

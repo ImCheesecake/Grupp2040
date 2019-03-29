@@ -54,9 +54,10 @@ export default class AddAuction extends Component {
         "Content-Type": "application/json"
       }
     }).then(function(data) {
-      console.log(data.res);
+     console.log(data.body)
     });
 
+    //this.props.addNewAuctionToList();
     this.setState({
       StartDatum: null,
       Titel: null,

@@ -6,7 +6,7 @@ export default class AuctionList extends Component {
   render() {
     let auctionListStyle = 
     {
-      height: "90%",
+      height: "30%",
       maxHeight: "80%",
       width: "40%",
       background: "red"
