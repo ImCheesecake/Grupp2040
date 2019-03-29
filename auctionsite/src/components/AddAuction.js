@@ -1,11 +1,114 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
+import DatePicker from "react-datepicker";
+import moment from "moment";
+import "moment-timezone";
+import "moment/locale/sv";
+import "react-datepicker/dist/react-datepicker.css";
 
 export default class AddAuction extends Component {
+  state = {
+    StartDatum: null,
+    Titel: null,
+    Beskrivning: null,
+    SlutDatum: moment()
+      .add(1, "days")
+      .toDate(),
+    Utropspris: 0,
+    SkapadAv: null
+  };
+
+  handleDateChange = e => {
+    this.setState({
+      SlutDatum: moment(e).toDate()
+    });
+  };
+
+  handleChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
+
+  handleSubmit = e => {
+    let url = "https://nackowskis.azurewebsites.net/api/Auktion/2040";
+
+    e.preventDefault();
+
+    let newAuction = {
+      SlutDatum: moment(this.state.SlutDatum).format("YYYY-MM-DD HH:mm:ss"),
+      StartDatum: moment().format("YYYY-MM-DD HH:mm:ss"),
+      Titel: this.state.Titel,
+      Beskrivning: this.state.Beskrivning,
+      Utropspris: this.state.Utropspris,
+      Gruppkod: 2040,
+      SkapadAv: this.state.SkapadAv
+    };
+
+    console.log(newAuction);
+
+    fetch(url, {
+      method: "POST",
+      body: JSON.stringify(newAuction),
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json"
+      }
+    }).then(function(data) {
+      console.log(data.res);
+    });
+
+    this.setState({
+      StartDatum: null,
+      Titel: null,
+      Beskrivning: null,
+      SlutDatum: moment()
+        .add(1, "days")
+        .toDate(),
+      Utropspris: 0,
+      SkapadAv: null
+    });
+  };
+
   render() {
     return (
       <div>
-        
+        <form onSubmit={this.handleSubmit}>
+          <input
+            type="text"
+            name="Titel"
+            placeholder="Titel"
+            onChange={this.handleChange}
+          />
+          <input
+            type="text"
+            name="Beskrivning"
+            placeholder="Beskrivning"
+            onChange={this.handleChange}
+          />
+          <input
+            type="number"
+            name="Utropspris"
+            placeholder="Utropspris"
+            onChange={this.handleChange}
+          />
+          <input
+            type="text"
+            name="SkapadAv"
+            placeholder="Skapad av"
+            onChange={this.handleChange}
+          />
+          <DatePicker
+            selected={this.state.SlutDatum}
+            onChange={this.handleDateChange}
+            showTimeSelect
+            timeFormat="HH:mm"
+            timeIntervals={15}
+            dateFormat="yyyy-MM-dd HH:mm:ss"
+            timeCaption="time"
+          />
+          <button type="submit">Skapa ny auktion</button>
+        </form>
       </div>
-    )
+    );
   }
 }
