@@ -8,13 +8,13 @@ import "react-datepicker/dist/react-datepicker.css";
 export default class AddAuction extends Component {
   state = {
     StartDatum: null,
-    Titel: null,
-    Beskrivning: null,
+    Titel: "",
+    Beskrivning: "",
     SlutDatum: moment()
       .add(1, "days")
       .toDate(),
     Utropspris: 0,
-    SkapadAv: null
+    SkapadAv: ""
   };
 
   handleDateChange = e => {
@@ -29,7 +29,7 @@ export default class AddAuction extends Component {
     });
   };
 
-  handleSubmit = e => {
+  handleSubmit =async (e) => {
     let url = "https://nackowskis.azurewebsites.net/api/Auktion/2040";
 
     e.preventDefault();
@@ -44,7 +44,7 @@ export default class AddAuction extends Component {
       SkapadAv: this.state.SkapadAv
     };
 
-    fetch(url, {
+    await fetch(url, {
       method: "POST",
       body: JSON.stringify(newAuction),
       headers: {
