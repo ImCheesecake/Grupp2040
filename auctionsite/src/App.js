@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Header from "./components/Header";
 import AuctionList from "./components/AuctionList";
 import DetailView from "./components/DetailView";
-import Main from "./components/Main";
 import moment from "moment";
 import "moment-timezone";
 import "moment/locale/sv";
@@ -14,8 +13,8 @@ class App extends Component {
   };
 
   addNewAuctionToList = () => {
-    console.log("logging this.state.FilteredAuctions from addNewAuctionToList")
-    console.log(this.state.FilteredAuctions)
+    console.log("logging this.state.FilteredAuctions from addNewAuctionToList");
+    console.log(this.state.FilteredAuctions);
     this.updateArrays();
 
     // let newFilteredAuctions = [...this.state.FilteredAuctions, auction]
@@ -43,26 +42,24 @@ class App extends Component {
 
   updateArrays = () => {
     fetch("http://nackowskis.azurewebsites.net/api/Auktion/2040/")
-    .then(resp => resp.json())
-    .then(data => {
-      let activeAuctions = data.filter((item) => {
-        if(moment(item.SlutDatum).toDate() > moment())
-        {
-          return (item);
-        }
-        return null;
+      .then(resp => resp.json())
+      .then(data => {
+        let activeAuctions = data.filter(item => {
+          if (moment(item.SlutDatum).toDate() > moment()) {
+            return item;
+          }
+          return null;
+        });
+
+        console.log("Logging activeAuctions from updateArrays");
+        console.log(activeAuctions);
+
+        this.setState({
+          AllAuctions: data,
+          FilteredAuctions: activeAuctions
+        });
       });
-
-      console.log("Logging activeAuctions from updateArrays")
-      console.log(activeAuctions)
-
-      this.setState({          
-        AllAuctions: data,
-        FilteredAuctions: activeAuctions
-      })    
-    }); 
-  }
-
+  };
 
   componentDidMount() {
     this.updateArrays();
@@ -71,12 +68,11 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Main />
-        <Header
-          updateAuctions={this.updateAuctions}
+        <Header updateAuctions={this.updateAuctions} />
+        <AuctionList
+          Auctions={this.state.FilteredAuctions}
           addNewAuctionToList={this.addNewAuctionToList}
         />
-        <AuctionList Auctions={this.state.FilteredAuctions} />
         <DetailView />
       </div>
     );
