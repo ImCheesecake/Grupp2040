@@ -29,7 +29,7 @@ export default class AddAuction extends Component {
     });
   };
 
-  handleSubmit =async (e) => {
+  handleSubmit = async (e) => {
     let url = "https://nackowskis.azurewebsites.net/api/Auktion/2040";
 
     e.preventDefault();

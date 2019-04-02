@@ -14,15 +14,7 @@ class App extends Component {
   };
 
   addNewAuctionToList = () => {
-    console.log("logging this.state.FilteredAuctions from addNewAuctionToList")
-    console.log(this.state.FilteredAuctions)
     this.updateArrays();
-    
-    // let newFilteredAuctions = [...this.state.FilteredAuctions, auction]
-    // console.log(newFilteredAuctions)
-    // this.setState({
-    //   FilteredAuctions: newFilteredAuctions
-    // })
   }
 
   updateAuctions = (searchAuction) => {
@@ -58,9 +50,6 @@ class App extends Component {
         }
         return null;
       });
-
-      console.log("Logging activeAuctions from updateArrays")
-      console.log(activeAuctions)
 
       this.setState({          
         AllAuctions: data,
