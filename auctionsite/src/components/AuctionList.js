@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import AuctionItem from "./AuctionItem";
 import AddAuction from "./AddAuction";
+import "animate.css";
 
 export default class AuctionList extends Component {
   render() {
@@ -26,14 +27,14 @@ export default class AuctionList extends Component {
         return a.SlutDatum > b.SlutDatum ? 1 : -1;
       })
       .map(item => (
-        <div key={item.AuktionID}>
+        <div key={item.AuktionID} className="animated flipInX fast">
           <AuctionItem auctionItem={item} />
         </div>
       ));
 
     return (
       <div>
-        <AddAuction addNewAuctionToList={this.props.addNewAuctionToList} />
+        <AddAuction addNewAuctionToList={this.props.addNewAuctionToList} className="animated flipInX fast" />
 
         <div style={auctionListStyle}>
           <div>{allAuctions}</div>

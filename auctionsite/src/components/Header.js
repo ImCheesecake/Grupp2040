@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Search from "./Search";
-// import AddAuction from "./AddAuction";
+import "animate.css";
 
 export default class Header extends Component {
   render() {
@@ -18,7 +18,7 @@ export default class Header extends Component {
     };
     return (
       <div style={divStyle}>
-        <h1 style={testStyle}>Auction Site</h1>
+        <h1 style={testStyle} className="animated rubberBand delay-5s">Auction Site</h1>
         <Search updateAuctions={this.props.updateAuctions} />
       </div>
     );

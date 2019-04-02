@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import moment from "moment";
 import "moment-timezone";
 import "moment/locale/sv";
+import "animate.css";
 
 export default class AuctionItem extends Component {
   state = {
