@@ -4,12 +4,10 @@ import AuctionItem from "./AuctionItem";
 export default class AuctionList extends Component {
   render() {
     let auctionListStyle = {
-      maxHeight: "50vh",
-      width: "40%",
-      background: "red",
-      overflow: "auto",
-      marginTop: "2em"
+      width: "25%",
+      margin:"2em"
     };
+
     // let activeAuctions = this.props.Auctions.filter((item) => {
     //   console.log(item.SlutDatum)
     //   console.log(new Date())
@@ -26,6 +24,10 @@ export default class AuctionList extends Component {
       </div>
     ));
 
-    return <div style={auctionListStyle}>{allAuctions}</div>;
+    return (
+      <div style={auctionListStyle}>
+        <div>{allAuctions}</div>
+      </div>
+    );
   }
 }
