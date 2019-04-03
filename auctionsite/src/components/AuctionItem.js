@@ -4,6 +4,7 @@ import "moment-timezone";
 import "moment/locale/sv";
 import "animate.css";
 
+
 export default class AuctionItem extends Component {
   state = {
     date: this.props.auctionItem.SlutDatum,
@@ -20,6 +21,12 @@ export default class AuctionItem extends Component {
   componentWillUnmount() {
     clearInterval(this.interval);
   }
+
+  openDetailView = () => {
+    var auctionId = this.props.auctionItem.AuktionID;
+    this.props.setDetailView(true, auctionId);
+  }
+
   render() {
 
     const styles = {
@@ -40,12 +47,11 @@ export default class AuctionItem extends Component {
     
     
     return (
-      <div style={styles.auctionItemStyle}>
+      <div style={styles.auctionItemStyle} onClick={this.openDetailView}>
           <h1>{this.props.auctionItem.Titel}</h1>
         <div style={styles.auctionPlacement}>
           <p>Utropspris: {this.props.auctionItem.Utropspris}</p>
           <p>Slutdatum: {moment().to(this.state.date)}</p>
-          
         </div>
       </div>
     );

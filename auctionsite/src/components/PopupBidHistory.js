@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import Popup from "reactjs-popup";
-import AddAuction from './AddAuction';
+import BidHistory from "./BidHistory"
 import "animate.css";
 
-export default class PopupForm extends Component {
+export default class PopupBidHistory extends Component {
   constructor(props) {
     super(props)
   
@@ -25,19 +25,18 @@ export default class PopupForm extends Component {
     return (
       <div>
         <button className="button" onClick={this.openModal}>
-          Skapa ny popup-auktion
+          Bid history
         </button>
         <Popup
           open={this.state.open}
           closeOnDocumentClick
           onClose={this.closeModal}
-          className="animated fadeIn faster"
         >
           <div className="modal">
             <i className="close" onClick={this.closeModal}>
               &times;
             </i>
-            <AddAuction addNewAuctionToList={this.props.addNewAuctionToList} className="animated flipInX fast" />
+            <BidHistory bidHistory={this.props.bidHistory}/>
           </div>
         </Popup>
       </div>

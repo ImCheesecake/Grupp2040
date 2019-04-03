@@ -9,19 +9,29 @@ import "moment/locale/sv";
 class App extends Component {
   state = {
     FilteredAuctions: [],
-    AllAuctions: []
+    AllAuctions: [],
+    showDetailView: false,
+    auctionId: 0
   };
 
-  addNewAuctionToList = () => {
-    console.log("logging this.state.FilteredAuctions from addNewAuctionToList");
-    console.log(this.state.FilteredAuctions);
-    this.updateArrays();
+  setDetailView = async (value, id) => {
+    if (id !== this.state.auctionId) {      
+      await this.hideDetailView()
+      this.setState( {
+        showDetailView: value,
+        auctionId: id
+      })
+    }
+  }
 
-    // let newFilteredAuctions = [...this.state.FilteredAuctions, auction]
-    // console.log(newFilteredAuctions)
-    // this.setState({
-    //   FilteredAuctions: newFilteredAuctions
-    // })
+  hideDetailView = () => {
+    this.setState({
+      showDetailView: false
+    })
+  }
+
+  addNewAuctionToList = () => {
+    this.updateArrays();
   };
 
   updateAuctions = searchAuction => {
@@ -51,9 +61,6 @@ class App extends Component {
           return null;
         });
 
-        console.log("Logging activeAuctions from updateArrays");
-        console.log(activeAuctions);
-
         this.setState({
           AllAuctions: data,
           FilteredAuctions: activeAuctions
@@ -67,14 +74,19 @@ class App extends Component {
 
   render() {
     return (
+
       <div>
         <Header updateAuctions={this.updateAuctions} 
         addNewAuctionToList={this.addNewAuctionToList}
         />
-        <AuctionList
-          Auctions={this.state.FilteredAuctions}
-        />
-        <DetailView />
+        <div>
+          <AuctionList
+            Auctions={this.state.FilteredAuctions} 
+            setDetailView={this.setDetailView}
+          />
+          {this.state.showDetailView ? <DetailView setDetailView={this.setDetailView} auctionId={this.state.auctionId} /> : null}
+          
+        </div>
       </div>
     );
   }

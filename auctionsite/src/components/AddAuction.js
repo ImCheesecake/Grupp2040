@@ -51,8 +51,6 @@ export default class AddAuction extends Component {
         Accept: "application/json, text/plain, */*",
         "Content-Type": "application/json"
       }
-    }).then(function(data) {
-      console.log(data.body);
     });
 
     this.props.addNewAuctionToList();
@@ -69,20 +67,6 @@ export default class AddAuction extends Component {
     });
   };
 
-  componentDidMount() {
-    this.interval = setInterval(
-      () =>
-        this.setState({
-          SlutDatum: moment()
-            .add(1, "days")
-            .toDate()
-        }),
-      60000
-    );
-  }
-  componentWillUnmount() {
-    clearInterval(this.interval);
-  }
 
   render() {
 

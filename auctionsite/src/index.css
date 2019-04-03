@@ -3,7 +3,7 @@ html {
   margin: 0;
   padding: 0;
   background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
-  min-height: 96.6vh;
+  min-height: 91vh;
 }
 
 * {
@@ -70,6 +70,20 @@ button:hover{
   text-align: center;
 }
 .modal > .close {
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  padding: 2px 5px;
+  line-height: 20px;
+  right: -10px;
+  top: -10px;
+  font-size: 24px;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #cfcece;
+}
+
+.detailView > .close {
   cursor: pointer;
   position: absolute;
   display: block;
