@@ -37,4 +37,14 @@ input {
 
 button {
   height: 2.7em;
+  border-width: 0;
+  border-color: none;
+  border-style: solid;
+  cursor: pointer;
+  border-radius: .3em;
+  background: white;
+}
+
+button:hover{
+  background-color: #c8c8c8 !important;
 }
