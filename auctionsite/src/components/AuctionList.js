@@ -1,15 +1,19 @@
 import React, { Component } from "react";
 import AuctionItem from "./AuctionItem";
-import AddAuction from "./AddAuction";
+// import AddAuction from "./AddAuction";
 import "animate.css";
 
 export default class AuctionList extends Component {
   render() {
-    let auctionListStyle = {
-      width: "25%",
-      margin: "2em",
-      cursor: "pointer"
-    };
+    
+    const styles = {
+      auctionListStyle: {
+        width: "25%",
+        margin: "2em",
+        cursor: "pointer"
+      },
+    }
+    
 
     // let activeAuctions = this.props.Auctions.filter((item) => {
     //   console.log(item.SlutDatum)
@@ -34,9 +38,9 @@ export default class AuctionList extends Component {
 
     return (
       <div>
-        <AddAuction addNewAuctionToList={this.props.addNewAuctionToList} className="animated flipInX fast" />
+        {/* <AddAuction  /> */}
 
-        <div style={auctionListStyle}>
+        <div style={styles.auctionListStyle}>
           <div>{allAuctions}</div>
         </div>
       </div>

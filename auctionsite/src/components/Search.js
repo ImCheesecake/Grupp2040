@@ -15,32 +15,32 @@ export default class Search extends Component {
   };
   render() {
 
-    let searchFormStyle = {
-      borderRadius: ".8em 0 0 .8em",
-      margin: "0"
-    }
-    let buttonStyle = {
-      borderRadius: "0 .8em .8em 0",
-      padding: "0 .8em",
-    }
-
+    const styles = {
+      searchFormStyle: {
+        borderRadius: ".8em 0 0 .8em",
+        margin: "0",
+        borderRight: ".3px solid"
+      },
+      buttonStyle: {
+        borderRadius: "0 .8em .8em 0",
+        padding: "0 .8em",
+      },
+      headerStyle: {
+        margin: "auto 0"
+    },
     
-
-    let headerStyle = {
-      display: "flex",
-      justifyContent: "center"
     };
     return (
-      <div style={headerStyle}>
+      <div style={styles.headerStyle}>
         <form onSubmit={this.handleSubmit}>
           <input
-            style={searchFormStyle}
+            style={styles.searchFormStyle}
             type="text"
             name="searchAuction"
             placeholder="Search..."
             onChange={this.handleChange}
           />
-          <button style={buttonStyle} type="submit">Search</button>
+          <button style={styles.buttonStyle} type="submit">Search</button>
         </form>
       </div>
     );

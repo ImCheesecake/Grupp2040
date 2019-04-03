@@ -68,10 +68,11 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Header updateAuctions={this.updateAuctions} />
+        <Header updateAuctions={this.updateAuctions} 
+        addNewAuctionToList={this.addNewAuctionToList}
+        />
         <AuctionList
           Auctions={this.state.FilteredAuctions}
-          addNewAuctionToList={this.addNewAuctionToList}
         />
         <DetailView />
       </div>

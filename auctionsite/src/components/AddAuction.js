@@ -85,18 +85,22 @@ export default class AddAuction extends Component {
   }
 
   render() {
-    let headerStyling = {
-      marginTop: "1em",
-      display: "flex",
-      justifyContent: "center"
-    };
 
-    let formStyling = {
-      marginTop: "9em"
-    };
+    const styles = {
+      headerStyling: {
+        marginTop: "1em",
+        display: "flex",
+        justifyContent: "center"
+      },
+  
+      formStyling: {
+        marginTop: "7em"
+      },
+    }
+    
     return (
-      <div style={headerStyling}>
-        <form onSubmit={this.handleSubmit} style={formStyling}>
+      <div style={styles.headerStyling}>
+        <form onSubmit={this.handleSubmit} style={styles.formStyling}>
           <input
             maxLength="50"
             value={this.state.Titel}
