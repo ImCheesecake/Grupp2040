@@ -32,11 +32,7 @@ class App extends Component {
 
   addNewAuctionToList = () => {
     this.updateArrays();
-<<<<<<< HEAD
-  }
-=======
   };
->>>>>>> master
 
   updateAuctions = searchAuction => {
     if (searchAuction) {
