@@ -4,20 +4,14 @@ import BidHistory from "./BidHistory"
 import "animate.css";
 
 export default class PopupBidHistory extends Component {
-  constructor(props) {
-    super(props)
-  
-    this.state = {
+    state = {
        open: false
-    }
-    this.openModal = this.openModal.bind(this)
-    this.closeModal = this.closeModal.bind(this)
-  }
+    }  
 
-  openModal(){
+  openModal = () => {
     this.setState({open: true})
   }
-  closeModal(){
+  closeModal = () => {
     this.setState({open: false})
   }
   

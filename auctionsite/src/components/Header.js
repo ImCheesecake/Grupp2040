@@ -4,10 +4,6 @@ import "animate.css";
 import Popup from "./PopupForm";
 
 export default class Header extends Component {
-
-  
-  
-
   render() {
 
     const styles = {

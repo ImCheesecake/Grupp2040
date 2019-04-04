@@ -4,15 +4,16 @@ export default class Search extends Component {
   state = {
     searchAuction: ""
   };
-  handleChange = e => {
-    this.setState({
+  handleChange = async e => {
+    await this.setState({
       [e.target.name]: e.target.value
     });
-  };
-  handleSubmit = e => {
-    e.preventDefault();
     this.props.updateAuctions(this.state.searchAuction);
   };
+  // handleSubmit = e => {
+  //   e.preventDefault();
+  //   this.props.updateAuctions(this.state.searchAuction);
+  // };
   render() {
 
     const styles = {

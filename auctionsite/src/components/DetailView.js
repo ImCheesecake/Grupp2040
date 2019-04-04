@@ -16,7 +16,7 @@ export default class DetailView extends Component {
   };
 
   async componentDidMount() {
-    var budUrl = "https://nackowskis.azurewebsites.net/api/bud/2040/1" //+ this.props.auctionId;    
+    var budUrl = "https://nackowskis.azurewebsites.net/api/bud/2040/" + this.props.auctionId;    
     var auctionUrl = "https://nackowskis.azurewebsites.net/api/Auktion/2040/" + this.props.auctionId; 
 
     var bidResp = await fetch(budUrl);
