@@ -5,7 +5,7 @@ import "moment-timezone";
 import "moment/locale/sv";
 import "react-datepicker/dist/react-datepicker.css";
 
-export default class AddAuction extends Component {
+export default class UpdateAuction extends Component {
   state = {
     StartDatum: null,
     Titel: "",
@@ -17,11 +17,17 @@ export default class AddAuction extends Component {
     SkapadAv: ""
   };
 
-  handleDateChange = e => {
+  componentDidMount() {
+    console.log(this.props);
     this.setState({
-      SlutDatum: moment(e).toDate()
+      StartDatum: moment(this.props.auctionDetails.StartDatum).toDate(),
+      Titel: this.props.auctionDetails.Titel,
+      Beskrivning: this.props.auctionDetails.Beskrivning,
+      SlutDatum: moment(this.props.auctionDetails.SlutDatum).toDate(),
+      Utropspris: this.props.auctionDetails.Utropspris,
+      SkapadAv: this.props.auctionDetails.SkapadAv
     });
-  };
+  }
 
   handleChange = e => {
     this.setState({
@@ -29,62 +35,54 @@ export default class AddAuction extends Component {
     });
   };
 
-  handleSubmit = async e => {
-    let url = "https://nackowskis.azurewebsites.net/api/Auktion/2040";
-
-    e.preventDefault();
-
-    let newAuction = {
-      SlutDatum: moment(this.state.SlutDatum).format("YYYY-MM-DD HH:mm:ss"),
-      StartDatum: moment().format("YYYY-MM-DD HH:mm:ss"),
-      Titel: this.state.Titel,
-      Beskrivning: this.state.Beskrivning,
-      Utropspris: this.state.Utropspris,
-      Gruppkod: 2040,
-      SkapadAv: this.state.SkapadAv
-    };
-
-    await fetch(url, {
-      method: "POST",
-      body: JSON.stringify(newAuction),
-      headers: {
-        Accept: "application/json, text/plain, */*",
-        "Content-Type": "application/json"
-      }
-    });
-
-    this.props.updateArrays();
-
+  handleDateChange = e => {
     this.setState({
-      StartDatum: null,
-      Titel: "",
-      Beskrivning: "",
-      SlutDatum: moment()
-        .add(1, "days")
-        .toDate(),
-      Utropspris: 0,
-      SkapadAv: ""
+      SlutDatum: moment(e).toDate()
     });
   };
 
+  handleSubmit = async (e) => {
+      let url = "https://nackowskis.azurewebsites.net/api/Auktion/2040/" + this.props.auctionDetails.AuktionID;
+      e.preventDefault();
+
+      let auction = {
+        AuktionID: this.props.auctionDetails.AuktionID,
+        SlutDatum: moment(this.state.SlutDatum).format("YYYY-MM-DD HH:mm:ss"),
+        StartDatum: moment(this.state.StartDatum).format("YYYY-MM-DD HH:mm:ss"),
+        Titel: this.state.Titel,
+        Beskrivning: this.state.Beskrivning,
+        Utropspris: this.state.Utropspris,
+        Gruppkod: 2040,
+        SkapadAv: this.state.SkapadAv
+      }
+
+      await fetch(url, {
+        method: "PUT",
+        body: JSON.stringify(auction),
+        headers: {
+          Accept: "application/json, text/plain, */*",
+          "Content-Type": "application/json"
+        }
+      });
+
+      this.props.updateArrays();
+  }
 
   render() {
-
     const styles = {
       headerStyling: {
         marginTop: "1em",
         display: "flex",
         justifyContent: "center"
       },
-  
+
       formStyling: {
         marginTop: "7em"
-      },
-    }
-    
+      }
+    };
     return (
       <div style={styles.headerStyling}>
-        <h3>Add auction</h3>
+        <h3>Update Auction</h3>
         <form onSubmit={this.handleSubmit} style={styles.formStyling}>
           <input
             maxLength="50"
@@ -94,6 +92,7 @@ export default class AddAuction extends Component {
             placeholder="Titel"
             onChange={this.handleChange}
           />
+
           <input
             maxLength="250"
             value={this.state.Beskrivning}
@@ -130,7 +129,7 @@ export default class AddAuction extends Component {
             dateFormat="yyyy-MM-dd HH:mm"
             timeCaption="time"
           />
-          <button type="submit">Skapa ny auktion</button>
+          <button type="submit">Uppdatera auction</button>
         </form>
       </div>
     );

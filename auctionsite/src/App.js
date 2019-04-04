@@ -77,14 +77,14 @@ class App extends Component {
 
       <div>
         <Header updateAuctions={this.updateAuctions} 
-        addNewAuctionToList={this.addNewAuctionToList}
+        updateArrays={this.updateArrays}
         />
         <div>
           <AuctionList
             Auctions={this.state.FilteredAuctions} 
             setDetailView={this.setDetailView}
           />
-          {this.state.showDetailView ? <DetailView setDetailView={this.setDetailView} auctionId={this.state.auctionId} /> : null}
+          {this.state.showDetailView ? <DetailView updateArrays={this.updateArrays} setDetailView={this.setDetailView} auctionId={this.state.auctionId} /> : null}
           
         </div>
       </div>

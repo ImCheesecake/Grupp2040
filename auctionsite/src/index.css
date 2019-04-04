@@ -40,12 +40,12 @@ button {
   border-width: 0;
   border-color: none;
   border-style: solid;
-  cursor: pointer;
+  /* cursor: pointer; */
   border-radius: .3em;
   background: white;
 }
 
-button:hover{
+.button:hover{
   background-color: #c8c8c8 !important;
 }
 

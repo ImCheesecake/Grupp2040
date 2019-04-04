@@ -29,7 +29,7 @@ export default class Header extends Component {
       <div style={styles.divStyle}>
         <h1 style={styles.testStyle} className="animated rubberBand delay-5s">Auction Site</h1>
         <Search updateAuctions={this.props.updateAuctions} />
-        <Popup addNewAuctionToList={this.props.addNewAuctionToList}/>
+        <Popup updateArrays={this.props.updateArrays}/>
       </div>
     );
   }

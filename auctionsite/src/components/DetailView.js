@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import ItemInfo from "./ItemInfo";
 import "animate.css";
-import Popup from "././PopupBidHistory"
+import PopupHistory from "./PopupBidHistory";
+import PopupUpdate from "./PopupUpdate";
 
 export default class DetailView extends Component {
 
@@ -44,16 +45,16 @@ export default class DetailView extends Component {
       }
     };
 
-
+    
     return (
       <div style={styles.detailView} className="detailView animated fadeIn slow">
         <i className="close" onClick={this.closeDetailView}>
           &times;
         </i>
-        <div>
-          
+        <div>          
           <ItemInfo auctionDetails={this.state.auctionDetails}/>
-          <Popup bidHistory={this.state.bidHistory}/>
+          <PopupHistory bidHistory={this.state.bidHistory}/>
+          <PopupUpdate bidHistory={this.state.bidHistory} auctionDetails={this.state.auctionDetails} updateArrays={this.props.updateArrays}/>
         </div>
       </div>
     );

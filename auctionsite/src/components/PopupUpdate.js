@@ -1,31 +1,25 @@
 import React, { Component } from 'react'
 import Popup from "reactjs-popup";
-import AddAuction from './AddAuction';
 import "animate.css";
+import UpdateAuction from './UpdateAuction';
 
 export default class PopupForm extends Component {
-  constructor(props) {
-    super(props)
-  
-    this.state = {
-       open: false
-    }
-    this.openModal = this.openModal.bind(this)
-    this.closeModal = this.closeModal.bind(this)
-  }
+  state = {
+    open: false
+  }  
 
-  openModal(){
+  openModal = () => {
     this.setState({open: true})
   }
-  closeModal(){
+  closeModal = () => {
     this.setState({open: false})
   }
   
   render() {
     return (
       <div>
-        <button className="button" onClick={this.openModal}>
-          Skapa ny popup-auktion
+        <button className={this.props.bidHistory.length ? null : "button"} onClick={this.openModal} disabled={this.props.bidHistory.length ? true : false}>
+          Uppdatera auktion
         </button>
         <Popup
           open={this.state.open}
@@ -37,7 +31,7 @@ export default class PopupForm extends Component {
             <i className="close" onClick={this.closeModal}>
               &times;
             </i>
-            <AddAuction updateArrays={this.props.updateArrays} className="animated flipInX fast" />
+            <UpdateAuction bidHistory={this.props.bidHistory} auctionDetails={this.props.auctionDetails} updateArrays={this.props.updateArrays} className="animated flipInX fast" />
           </div>
         </Popup>
       </div>
