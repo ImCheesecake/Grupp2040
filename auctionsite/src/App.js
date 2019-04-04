@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Header from "./components/Header";
 import AuctionList from "./components/AuctionList";
 import DetailView from "./components/DetailView";
-import Main from "./components/Main";
 import moment from "moment";
 import "moment-timezone";
 import "moment/locale/sv";
@@ -10,37 +9,54 @@ import "moment/locale/sv";
 class App extends Component {
   state = {
     FilteredAuctions: [],
-    AllAuctions: []
+    AllAuctions: [],
+    showDetailView: false,
+    auctionId: 0
   };
+
+  setDetailView = async (value, id) => {
+    if (id !== this.state.auctionId) {      
+      await this.hideDetailView()
+      this.setState( {
+        showDetailView: value,
+        auctionId: id
+      })
+    }
+  }
+
+  hideDetailView = () => {
+    this.setState({
+      showDetailView: false
+    })
+  }
 
   addNewAuctionToList = () => {
     this.updateArrays();
+<<<<<<< HEAD
   }
+=======
+  };
+>>>>>>> master
 
-  updateAuctions = (searchAuction) => {
-    if(searchAuction)
-    {
-      let searchAuctions = this.state.AllAuctions.filter((item) => {
-        if(item.Titel.includes(searchAuction))
-        {
-          return item
+  updateAuctions = searchAuction => {
+    if (searchAuction) {
+      let searchAuctions = this.state.AllAuctions.filter(item => {
+        if (item.Titel.includes(searchAuction)) {
+          return item;
         }
-        return null
-      })
+        return null;
+      });
       this.setState({
         FilteredAuctions: searchAuctions
-      })
-    }
-    else
-    {
+      });
+    } else {
       this.updateArrays();
     }
-    
-  }
+  };
 
   updateArrays = () => {
-
     fetch("http://nackowskis.azurewebsites.net/api/Auktion/2040/")
+<<<<<<< HEAD
     .then(resp => resp.json())
     .then(data => {
       let activeAuctions = data.filter((item) => {
@@ -57,20 +73,43 @@ class App extends Component {
       })    
     }); 
   }
+=======
+      .then(resp => resp.json())
+      .then(data => {
+        let activeAuctions = data.filter(item => {
+          if (moment(item.SlutDatum).toDate() > moment()) {
+            return item;
+          }
+          return null;
+        });
+>>>>>>> master
 
+        this.setState({
+          AllAuctions: data,
+          FilteredAuctions: activeAuctions
+        });
+      });
+  };
 
   componentDidMount() {
-      this.updateArrays();        
+    this.updateArrays();
   }
-
 
   render() {
     return (
+
       <div>
-      <Main />
-        <Header updateAuctions = {this.updateAuctions} addNewAuctionToList={this.addNewAuctionToList}/>
-        <AuctionList Auctions={this.state.FilteredAuctions}/>
-        <DetailView />
+        <Header updateAuctions={this.updateAuctions} 
+        addNewAuctionToList={this.addNewAuctionToList}
+        />
+        <div>
+          <AuctionList
+            Auctions={this.state.FilteredAuctions} 
+            setDetailView={this.setDetailView}
+          />
+          {this.state.showDetailView ? <DetailView setDetailView={this.setDetailView} auctionId={this.state.auctionId} /> : null}
+          
+        </div>
       </div>
     );
   }

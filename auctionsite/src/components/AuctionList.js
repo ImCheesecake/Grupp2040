@@ -1,31 +1,35 @@
 import React, { Component } from "react";
 import AuctionItem from "./AuctionItem";
+import "animate.css";
 
 export default class AuctionList extends Component {
-  
   render() {
-    let auctionListStyle = 
-    {
-      height: "30%",
-      maxHeight: "80%",
-      width: "40%",
-      background: "red"
+    
+    const styles = {
+      auctionListStyle: {
+        width: "25%",
+        margin: "2em",
+        cursor: "pointer",
+        padding: "6em 0 0 0"
+      },
     }
-    // let activeAuctions = this.props.Auctions.filter((item) => {
-    //   console.log(item.SlutDatum)
-    //   console.log(new Date())
-    //   console.log(moment(item.SlutDatum).toDate() > moment())
-    //   if(moment(item.SlutDatum).toDate() > moment())
-    //   {
-    //     return (item);
-    //   }
-    //   return null;
-    // } );
-    let allAuctions = this.props.Auctions.map(item => <div key={item.AuktionID}><AuctionItem auctionItem = {item}/></div>);
+    
+    let allAuctions = [...this.props.Auctions]
+      .sort((a, b) => {
+        if (a.SlutDatum === b.SlutDatum) return 0;
+        return a.SlutDatum > b.SlutDatum ? 1 : -1;
+      })
+      .map(item => (
+        <div key={item.AuktionID} className="animated flipInX fast">
+          <AuctionItem auctionItem={item} setDetailView={this.props.setDetailView} />
+        </div>
+      ));
 
     return (
-      <div style={auctionListStyle}>
-        {allAuctions}
+      <div>
+        <div style={styles.auctionListStyle}>
+          <div>{allAuctions}</div>
+        </div>
       </div>
     );
   }

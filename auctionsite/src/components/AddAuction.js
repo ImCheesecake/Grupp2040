@@ -29,7 +29,11 @@ export default class AddAuction extends Component {
     });
   };
 
+<<<<<<< HEAD
   handleSubmit = async (e) => {
+=======
+  handleSubmit = async e => {
+>>>>>>> master
     let url = "https://nackowskis.azurewebsites.net/api/Auktion/2040";
 
     e.preventDefault();
@@ -51,10 +55,7 @@ export default class AddAuction extends Component {
         Accept: "application/json, text/plain, */*",
         "Content-Type": "application/json"
       }
-    }).then(function(data) {
-      console.log(data.body)
     });
-
 
     this.props.addNewAuctionToList();
 
@@ -67,16 +68,29 @@ export default class AddAuction extends Component {
         .toDate(),
       Utropspris: 0,
       SkapadAv: ""
-    });             
-
+    });
   };
 
 
   render() {
+
+    const styles = {
+      headerStyling: {
+        marginTop: "1em",
+        display: "flex",
+        justifyContent: "center"
+      },
+  
+      formStyling: {
+        marginTop: "7em"
+      },
+    }
+    
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
+      <div style={styles.headerStyling}>
+        <form onSubmit={this.handleSubmit} style={styles.formStyling}>
           <input
+            maxLength="50"
             value={this.state.Titel}
             type="text"
             name="Titel"
@@ -84,6 +98,7 @@ export default class AddAuction extends Component {
             onChange={this.handleChange}
           />
           <input
+            maxLength="250"
             value={this.state.Beskrivning}
             type="text"
             name="Beskrivning"
@@ -98,6 +113,7 @@ export default class AddAuction extends Component {
             onChange={this.handleChange}
           />
           <input
+            maxLength="50"
             value={this.state.SkapadAv}
             type="text"
             name="SkapadAv"
@@ -107,10 +123,14 @@ export default class AddAuction extends Component {
           <DatePicker
             selected={this.state.SlutDatum}
             onChange={this.handleDateChange}
+            minDate={this.state.StartDatum}
+            maxDate={moment()
+              .add(30, "days")
+              .toDate()}
             showTimeSelect
             timeFormat="HH:mm"
             timeIntervals={15}
-            dateFormat="yyyy-MM-dd HH:mm:ss"
+            dateFormat="yyyy-MM-dd HH:mm"
             timeCaption="time"
           />
           <button type="submit">Skapa ny auktion</button>

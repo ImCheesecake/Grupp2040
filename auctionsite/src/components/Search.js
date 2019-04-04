@@ -1,31 +1,48 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
 export default class Search extends Component {
   state = {
-    searchAuction: "" 
-  }
-  handleChange = (e) => {
+    searchAuction: ""
+  };
+  handleChange = e => {
     this.setState({
       [e.target.name]: e.target.value
-    })
-    
+    });
   };
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     e.preventDefault();
-    this.props.updateAuctions(this.state.searchAuction)
+    this.props.updateAuctions(this.state.searchAuction);
   };
   render() {
-    let headerStyle = {
-      display: "flex",
-      justifyContent: "center"
-    }
+
+    const styles = {
+      searchFormStyle: {
+        borderRadius: ".8em 0 0 .8em",
+        margin: "0",
+        borderRight: ".3px solid"
+      },
+      buttonStyle: {
+        borderRadius: "0 .8em .8em 0",
+        padding: "0 .8em",
+      },
+      headerStyle: {
+        margin: "auto 0"
+    },
+    
+    };
     return (
-      <div style = {headerStyle}>
-        <form onSubmit = {this.handleSubmit}>
-          <input type="text" name="searchAuction" placeholder = "Search..." onChange = {this.handleChange}/>
-          <button type="submit">Search</button>
+      <div style={styles.headerStyle}>
+        <form onSubmit={this.handleSubmit}>
+          <input
+            style={styles.searchFormStyle}
+            type="text"
+            name="searchAuction"
+            placeholder="Search..."
+            onChange={this.handleChange}
+          />
+          <button style={styles.buttonStyle} type="submit">Search</button>
         </form>
       </div>
-    )
+    );
   }
 }
