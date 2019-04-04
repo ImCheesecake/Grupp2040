@@ -56,24 +56,6 @@ class App extends Component {
 
   updateArrays = () => {
     fetch("http://nackowskis.azurewebsites.net/api/Auktion/2040/")
-<<<<<<< HEAD
-    .then(resp => resp.json())
-    .then(data => {
-      let activeAuctions = data.filter((item) => {
-        if(moment(item.SlutDatum).toDate() > moment())
-        {
-          return (item);
-        }
-        return null;
-      });
-
-      this.setState({          
-        AllAuctions: data,
-        FilteredAuctions: activeAuctions
-      })    
-    }); 
-  }
-=======
       .then(resp => resp.json())
       .then(data => {
         let activeAuctions = data.filter(item => {
@@ -82,7 +64,6 @@ class App extends Component {
           }
           return null;
         });
->>>>>>> master
 
         this.setState({
           AllAuctions: data,
