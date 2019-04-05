@@ -40,6 +40,7 @@ export default class PopupForm extends Component {
               auctionDetails={this.props.auctionDetails}
               updateArrays={this.props.updateArrays}
               className="animated flipInX fast"
+              updateDetailView={this.props.updateDetailView}
             />
           </div>
         </Popup>
