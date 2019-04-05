@@ -57,7 +57,12 @@ export default class DetailView extends Component {
         <div>          
           <ItemInfo auctionDetails={this.state.auctionDetails}/>
           <PopupHistory bidHistory={this.state.bidHistory}/>
-          <PopupUpdate bidHistory={this.state.bidHistory} auctionDetails={this.state.auctionDetails} updateArrays={this.props.updateArrays} updateDetailView= {this.updateDetailView}/>
+          <PopupUpdate 
+          bidHistory={this.state.bidHistory} 
+          auctionDetails={this.state.auctionDetails} 
+          updateArrays={this.props.updateArrays} 
+          updateDetailView= {this.updateDetailView}/>
+          
         </div>
       </div>
     );
