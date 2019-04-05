@@ -75,9 +75,9 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Header
-          updateAuctions={this.updateAuctions}
-          updateArrays={this.updateArrays}
+        <Header updateAuctions={this.updateAuctions} 
+        updateArrays={this.updateArrays}
+        hideDetailView={this.hideDetailView}
         />
         <div>
           <AuctionList
