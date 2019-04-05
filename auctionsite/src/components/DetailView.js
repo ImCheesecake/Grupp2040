@@ -56,44 +56,42 @@ export default class DetailView extends Component {
     };
 
     return (
-        <div
-          style={styles.detailView}
-          className={
-            this.state.active
-              ? "detailView animated fadeOut faster divCard"
-              : "detailView animated fadeIn slow divCard"
-          }
-        >
-          <i className="close" onClick={this.closeDetailView}>
-            &times;
-          </i>
-          <div>
-            <ItemInfo auctionDetails={this.state.auctionDetails} />
-            <PopupHistory
-              bidHistory={this.state.bidHistory}
-              auctionDetails={this.state.auctionDetails}
-            />
-            <PopupUpdate
-              bidHistory={this.state.bidHistory}
-              auctionDetails={this.state.auctionDetails}
-              updateArrays={this.props.updateArrays}
-              updateDetailView={this.updateDetailView}
-            />
-            <PopupDelete
-              bidHistory={this.state.bidHistory}
-              auctionDetails={this.state.auctionDetails}
-              updateArrays={this.props.updateArrays}
-              hideDetailView={this.props.hideDetailView}
-            />
-          </div>
-        
+      <div
+        style={styles.detailView}
+        className={
+          this.state.active
+            ? "detailView animated fadeOut faster divCard"
+            : "detailView animated fadeIn slow divCard"
+        }
+      >
+        <i className="close" onClick={this.closeDetailView}>
+          &times;
+        </i>
         <div>
-          <BidAuction
+          <ItemInfo auctionDetails={this.state.auctionDetails} />
+          <PopupHistory
+            bidHistory={this.state.bidHistory}
             auctionDetails={this.state.auctionDetails}
-            updateDetailView={this.updateDetailView}
+          />
+          <PopupUpdate
+            bidHistory={this.state.bidHistory}
+            auctionDetails={this.state.auctionDetails}
             updateArrays={this.props.updateArrays}
+            updateDetailView={this.updateDetailView}
+          />
+          <PopupDelete
+            bidHistory={this.state.bidHistory}
+            auctionDetails={this.state.auctionDetails}
+            updateArrays={this.props.updateArrays}
+            hideDetailView={this.props.hideDetailView}
           />
         </div>
+
+        <BidAuction
+          auctionDetails={this.state.auctionDetails}
+          updateDetailView={this.updateDetailView}
+          updateArrays={this.props.updateArrays}
+        />
       </div>
     );
   }
