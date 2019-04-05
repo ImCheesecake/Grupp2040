@@ -88,10 +88,11 @@ export default class DetailView extends Component {
           </div>
         
         <div>
-          <BidAuction 
-          auctionDetails={this.state.auctionDetails}
-          updateDetailView= {this.updateDetailView}
-          updateArrays={this.props.updateArrays} />
+          <BidAuction
+            auctionDetails={this.state.auctionDetails}
+            updateDetailView={this.updateDetailView}
+            updateArrays={this.props.updateArrays}
+          />
         </div>
       </div>
     );
