@@ -22,7 +22,7 @@ export default class BidAuction extends Component {
       await this.updateAuctionPrice();
       this.props.updateDetailView();
     } else {
-      alert("Idiot du kan ju inte buda lägre än maxbudet fattar du väl")
+      alert("Idiot du kan ju inte buda lägre än maxbudet fattar du väl");
     }
   };
 
@@ -37,7 +37,8 @@ export default class BidAuction extends Component {
       "https://nackowskis.azurewebsites.net/api/Auktion/2040/" +
       this.props.auctionDetails.AuktionID;
 
-      let budUrl = "https://nackowskis.azurewebsites.net/api/bud/2040/" +
+    let budUrl =
+      "https://nackowskis.azurewebsites.net/api/bud/2040/" +
       this.props.auctionDetails.AuktionID;
 
     let auction = {
@@ -46,10 +47,10 @@ export default class BidAuction extends Component {
     };
 
     let bud = {
-        Summa: this.state.Bud,
-        AuktionID: this.props.auctionDetails.AuktionID,
-        Budgivare: this.state.Budgivare
-    }
+      Summa: this.state.Bud,
+      AuktionID: this.props.auctionDetails.AuktionID,
+      Budgivare: this.state.Budgivare
+    };
 
     await fetch(url, {
       method: "PUT",
@@ -75,40 +76,55 @@ export default class BidAuction extends Component {
 
   render() {
     const styles = {
-      BidAuction: {
-        float: "right"
+      formPosition: {
+        display: "flex",
+        justifyContent: "space-between",
+        flexDirection: "column"
       }
     };
 
     return (
-      <div style={styles.BidAuction}>
+      <div>
         <div>
-        <h4>Current top bid: {this.state.Utropspris} kr</h4>
+          <h4>Current top bid: {this.state.Utropspris} kr</h4>
         </div>
         <div>
-        <form onSubmit={this.handleSubmit}>
-          <div>
-            <label>Bud: </label>
-          <input
-            name="Bud"
-            type="number"
-            value={this.state.Bud}
-            onChange={this.handleChange}
-          />
-          </div>
-          <div>
-          <label>Budgivare: </label>
-          <input 
-          name="Budgivare" 
-          type="text" 
-          value={this.state.Budgivare} 
-          onChange={this.handleChange} 
-          maxLength="50"/>
-          </div>
-          <div>
-          <button type="submit">Bid</button>
-          </div>
-        </form>
+          <form onSubmit={this.handleSubmit} style={styles.formPosition}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                marginBottom: ".3em"
+              }}
+            >
+              <label style={{ alignSelf: "center" }}>Bud: </label>
+              <input
+                name="Bud"
+                type="number"
+                value={this.state.Bud}
+                onChange={this.handleChange}
+              />
+            </div>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                marginBottom: ".3em"
+              }}
+            >
+              <label style={{ alignSelf: "center" }}>Budgivare: </label>
+              <input
+                name="Budgivare"
+                type="text"
+                value={this.state.Budgivare}
+                onChange={this.handleChange}
+                maxLength="50"
+              />
+            </div>
+            <div style={{ alignSelf: "flex-end", marginRight: "6.66667px" }}>
+              <button type="submit">Bid</button>
+            </div>
+          </form>
         </div>
       </div>
     );

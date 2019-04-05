@@ -51,7 +51,9 @@ export default class DetailView extends Component {
         top: "20%",
         left: "40%",
         width: "45%",
-        height: "fit-content"
+        height: "fit-content",
+        display: "flex",
+        justifyContent: "space-between"
       }
     };
 
@@ -69,22 +71,25 @@ export default class DetailView extends Component {
         </i>
         <div>
           <ItemInfo auctionDetails={this.state.auctionDetails} />
-          <PopupHistory
-            bidHistory={this.state.bidHistory}
-            auctionDetails={this.state.auctionDetails}
-          />
-          <PopupUpdate
-            bidHistory={this.state.bidHistory}
-            auctionDetails={this.state.auctionDetails}
-            updateArrays={this.props.updateArrays}
-            updateDetailView={this.updateDetailView}
-          />
-          <PopupDelete
-            bidHistory={this.state.bidHistory}
-            auctionDetails={this.state.auctionDetails}
-            updateArrays={this.props.updateArrays}
-            hideDetailView={this.props.hideDetailView}
-          />
+          <div style={{ display: "flex" }}>
+            <PopupHistory
+              bidHistory={this.state.bidHistory}
+              auctionDetails={this.state.auctionDetails}
+            />
+            <PopupUpdate
+              bidHistory={this.state.bidHistory}
+              auctionDetails={this.state.auctionDetails}
+              updateArrays={this.props.updateArrays}
+              updateDetailView={this.updateDetailView}
+              style={{ marginRight: ".5em" }}
+            />
+            <PopupDelete
+              bidHistory={this.state.bidHistory}
+              auctionDetails={this.state.auctionDetails}
+              updateArrays={this.props.updateArrays}
+              hideDetailView={this.props.hideDetailView}
+            />
+          </div>
         </div>
 
         <BidAuction
