@@ -2,10 +2,14 @@ import React, { Component } from "react";
 import Popup from "reactjs-popup";
 import "animate.css";
 import UpdateAuction from "./UpdateAuction";
+import moment from "moment";
+import "moment-timezone";
+import "moment/locale/sv";
 
 export default class PopupForm extends Component {
   state = {
-    open: false
+    open: false,
+    date: moment().toDate()
   };
 
   openModal = () => {
@@ -15,13 +19,23 @@ export default class PopupForm extends Component {
     this.setState({ open: false });
   };
 
+  componentDidUpdate(prevProps) {
+    if (prevProps !== this.props) {
+      this.setState({
+        date: moment(this.props.auctionDetails.SlutDatum).toDate()
+      });
+    }
+  }
+
   render() {
+    console.log(this.state.date);
     return (
       <div>
         <button
           className={this.props.bidHistory.length ? null : "button"}
           onClick={this.openModal}
           disabled={this.props.bidHistory.length ? true : false}
+          style={this.props.bidHistory.length ? null : { cursor: "pointer" }}
         >
           Uppdatera auktion
         </button>

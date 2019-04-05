@@ -20,7 +20,7 @@ export default class Header extends Component {
         borderRadius: "0 0 .5em .5em",
         display: "flex",
         justifyContent: "space-evenly",
-        padding: ".7em 0"
+        padding: ".7em 0",
       }
     };
 

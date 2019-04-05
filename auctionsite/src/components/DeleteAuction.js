@@ -25,8 +25,8 @@ export default class DeleteAuction extends Component {
     return (
       <div>
         <h3>Are you sure you want to delete this auction?</h3>
-        <button onClick={this.handleDelete}>Yes</button>
-        <button onClick={this.handleClose}>No</button>
+        <button onClick={this.handleDelete} style={{cursor: "pointer"}}>Yes</button>
+        <button onClick={this.handleClose} style={{cursor: "pointer"}}>No</button>
       </div>
     )
   }

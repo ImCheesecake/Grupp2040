@@ -8,16 +8,20 @@ import PopupDelete from "./PopupDelete";
 export default class DetailView extends Component {
   state = {
     bidHistory: [],
-    auctionDetails: {}
+    auctionDetails: {},
+    active: false
   };
 
   closeDetailView = () => {
-    this.props.setDetailView(false);
+    this.setState({ active: true });
+    setTimeout(() => {
+      this.props.setDetailView(false);
+    }, 500);
   };
 
   updateDetailView = () => {
     this.componentDidMount();
-  }
+  };
 
   async componentDidMount() {
     var budUrl =
@@ -41,38 +45,50 @@ export default class DetailView extends Component {
 
   render() {
     const styles = {
-      detailView: { 
+      detailView: {
         position: "fixed",
-        top: "150px",
-        left: "50%",
-        width: "40%",
-        height: "400px"
+        top: "20%",
+        left: "40%",
+        width: "45%",
+        height: "fit-content"
       }
     };
 
     return (
-      <div
-        style={styles.detailView}
-        className="detailView animated fadeIn slow divCard"
-      >
-        <i className="close" onClick={this.closeDetailView}>
-          &times;
-        </i>
-        <div>          
-          <ItemInfo auctionDetails={this.state.auctionDetails}/>
-          <PopupHistory bidHistory={this.state.bidHistory}/>
-          <PopupUpdate 
-          bidHistory={this.state.bidHistory} 
-          auctionDetails={this.state.auctionDetails} 
-          updateArrays={this.props.updateArrays} 
-          updateDetailView= {this.updateDetailView}/>
-          <PopupDelete 
-          bidHistory={this.state.bidHistory} 
-          auctionDetails={this.state.auctionDetails}
-          updateArrays={this.props.updateArrays}
-          hideDetailView={this.props.hideDetailView}/>
+      console.log(this.state.active),
+      (
+        <div
+          style={styles.detailView}
+          className={
+            this.state.active
+              ? "detailView animated fadeOut faster divCard"
+              : "detailView animated fadeIn slow divCard"
+          }
+        >
+          <i className="close" onClick={this.closeDetailView}>
+            &times;
+          </i>
+          <div>
+            <ItemInfo auctionDetails={this.state.auctionDetails} />
+            <PopupHistory
+              bidHistory={this.state.bidHistory}
+              auctionDetails={this.state.auctionDetails}
+            />
+            <PopupUpdate
+              bidHistory={this.state.bidHistory}
+              auctionDetails={this.state.auctionDetails}
+              updateArrays={this.props.updateArrays}
+              updateDetailView={this.updateDetailView}
+            />
+            <PopupDelete
+              bidHistory={this.state.bidHistory}
+              auctionDetails={this.state.auctionDetails}
+              updateArrays={this.props.updateArrays}
+              hideDetailView={this.props.hideDetailView}
+            />
+          </div>
         </div>
-      </div>
+      )
     );
   }
 }
