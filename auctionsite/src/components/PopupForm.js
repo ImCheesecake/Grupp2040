@@ -1,26 +1,26 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 import Popup from "reactjs-popup";
-import AddAuction from './AddAuction';
+import AddAuction from "./AddAuction";
 import "animate.css";
 
 export default class PopupForm extends Component {
   constructor(props) {
-    super(props)
-  
+    super(props);
+
     this.state = {
-       open: false
-    }
-    this.openModal = this.openModal.bind(this)
-    this.closeModal = this.closeModal.bind(this)
+      open: false
+    };
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
 
-  openModal(){
-    this.setState({open: true})
+  openModal() {
+    this.setState({ open: true });
   }
-  closeModal(){
-    this.setState({open: false})
+  closeModal() {
+    this.setState({ open: false });
   }
-  
+
   render() {
     return (
       <div>
@@ -37,10 +37,13 @@ export default class PopupForm extends Component {
             <i className="close" onClick={this.closeModal}>
               &times;
             </i>
-            <AddAuction updateArrays={this.props.updateArrays} className="animated flipInX fast" />
+            <AddAuction
+              updateArrays={this.props.updateArrays}
+              className="animated flipInX fast"
+            />
           </div>
         </Popup>
       </div>
-    )
+    );
   }
 }

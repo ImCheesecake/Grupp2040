@@ -67,21 +67,19 @@ export default class AddAuction extends Component {
     });
   };
 
-
   render() {
-
     const styles = {
       headerStyling: {
         marginTop: "1em",
         display: "flex",
         justifyContent: "center"
       },
-  
+
       formStyling: {
         marginTop: "7em"
-      },
-    }
-    
+      }
+    };
+
     return (
       <div style={styles.headerStyling}>
         <h3>Add auction</h3>

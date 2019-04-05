@@ -1,20 +1,20 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 import Popup from "reactjs-popup";
-import BidHistory from "./BidHistory"
+import BidHistory from "./BidHistory";
 import "animate.css";
 
 export default class PopupBidHistory extends Component {
-    state = {
-       open: false
-    }  
+  state = {
+    open: false
+  };
 
   openModal = () => {
-    this.setState({open: true})
-  }
+    this.setState({ open: true });
+  };
   closeModal = () => {
-    this.setState({open: false})
-  }
-  
+    this.setState({ open: false });
+  };
+
   render() {
     return (
       <div>
@@ -30,10 +30,10 @@ export default class PopupBidHistory extends Component {
             <i className="close" onClick={this.closeModal}>
               &times;
             </i>
-            <BidHistory bidHistory={this.props.bidHistory}/>
+            <BidHistory bidHistory={this.props.bidHistory} />
           </div>
         </Popup>
       </div>
-    )
+    );
   }
 }
