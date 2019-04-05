@@ -8,7 +8,8 @@ export default class PopupForm extends Component {
     super(props);
 
     this.state = {
-      open: false
+      open: false,
+      active: false
     };
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -18,20 +19,36 @@ export default class PopupForm extends Component {
     this.setState({ open: true });
   }
   closeModal() {
-    this.setState({ open: false });
+    this.setState({ active: true });
+    setTimeout(() => {
+      this.setState({ open: false, active: false });
+    }, 500);
   }
 
   render() {
+    const styles = {
+      headerStyle: {
+        margin: "auto 0"
+      }
+    };
     return (
-      <div>
-        <button className="button" onClick={this.openModal}>
+      <div style={styles.headerStyle}>
+        <button
+          className="button"
+          onClick={this.openModal}
+          style={{ cursor: "pointer" }}
+        >
           Skapa ny popup-auktion
         </button>
         <Popup
           open={this.state.open}
           closeOnDocumentClick
           onClose={this.closeModal}
-          className="animated fadeIn faster"
+          className={
+            this.state.active
+              ? "animated fadeOut faster"
+              : "animated fadeIn faster"
+          }
         >
           <div className="modal">
             <i className="close" onClick={this.closeModal}>
