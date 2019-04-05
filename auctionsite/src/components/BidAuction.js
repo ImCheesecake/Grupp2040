@@ -82,8 +82,12 @@ export default class BidAuction extends Component {
 
     return (
       <div style={styles.BidAuction}>
+        <div>
         <h4>Current top bid: {this.state.Utropspris} kr</h4>
+        </div>
+        <div>
         <form onSubmit={this.handleSubmit}>
+          <div>
             <label>Bud: </label>
           <input
             name="Bud"
@@ -91,6 +95,8 @@ export default class BidAuction extends Component {
             value={this.state.Bud}
             onChange={this.handleChange}
           />
+          </div>
+          <div>
           <label>Budgivare: </label>
           <input 
           name="Budgivare" 
@@ -98,8 +104,12 @@ export default class BidAuction extends Component {
           value={this.state.Budgivare} 
           onChange={this.handleChange} 
           maxLength="50"/>
+          </div>
+          <div>
           <button type="submit">Bid</button>
+          </div>
         </form>
+        </div>
       </div>
     );
   }
