@@ -84,13 +84,12 @@ class App extends Component {
             Auctions={this.state.FilteredAuctions}
             setDetailView={this.setDetailView}
           />
-          {this.state.showDetailView ? (
-            <DetailView
-              updateArrays={this.updateArrays}
-              setDetailView={this.setDetailView}
-              auctionId={this.state.auctionId}
-            />
-          ) : null}
+          {this.state.showDetailView ? <DetailView 
+                                        updateArrays={this.updateArrays} 
+                                        setDetailView={this.setDetailView}
+                                        auctionId={this.state.auctionId} 
+                                        hideDetailView={this.hideDetailView}/> : null}
+          
         </div>
       </div>
     );

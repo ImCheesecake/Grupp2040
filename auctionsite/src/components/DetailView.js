@@ -3,6 +3,7 @@ import ItemInfo from "./ItemInfo";
 import "animate.css";
 import PopupHistory from "./PopupBidHistory";
 import PopupUpdate from "./PopupUpdate";
+import PopupDelete from "./PopupDelete";
 
 export default class DetailView extends Component {
   state = {
@@ -40,7 +41,7 @@ export default class DetailView extends Component {
 
   render() {
     const styles = {
-      detailView: {
+      detailView: { 
         position: "fixed",
         top: "150px",
         left: "50%",
@@ -65,7 +66,11 @@ export default class DetailView extends Component {
           auctionDetails={this.state.auctionDetails} 
           updateArrays={this.props.updateArrays} 
           updateDetailView= {this.updateDetailView}/>
-          
+          <PopupDelete 
+          bidHistory={this.state.bidHistory} 
+          auctionDetails={this.state.auctionDetails}
+          updateArrays={this.props.updateArrays}
+          hideDetailView={this.props.hideDetailView}/>
         </div>
       </div>
     );
