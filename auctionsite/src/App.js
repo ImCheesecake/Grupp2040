@@ -78,6 +78,7 @@ class App extends Component {
       <div>
         <Header updateAuctions={this.updateAuctions} 
         updateArrays={this.updateArrays}
+        hideDetailView={this.hideDetailView}
         />
         <div>
           <AuctionList

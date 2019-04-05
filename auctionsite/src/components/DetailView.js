@@ -4,6 +4,7 @@ import "animate.css";
 import PopupHistory from "./PopupBidHistory";
 import PopupUpdate from "./PopupUpdate";
 import PopupDelete from "./PopupDelete";
+import BidAuction from "./BidAuction";
 
 export default class DetailView extends Component {
 
@@ -31,7 +32,7 @@ export default class DetailView extends Component {
     var auctionResp = await fetch(auctionUrl);
     var auctionDetails = await auctionResp.json();
 
-    this.setState({
+    await this.setState({
       bidHistory,
       auctionDetails
     }) 
@@ -68,6 +69,12 @@ export default class DetailView extends Component {
           auctionDetails={this.state.auctionDetails}
           updateArrays={this.props.updateArrays}
           hideDetailView={this.props.hideDetailView}/>
+        </div>
+        <div>
+          <BidAuction 
+          auctionDetails={this.state.auctionDetails}
+          updateDetailView= {this.updateDetailView}
+          updateArrays={this.props.updateArrays} />
         </div>
       </div>
     );
