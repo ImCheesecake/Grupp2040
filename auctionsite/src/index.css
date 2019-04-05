@@ -1,3 +1,7 @@
+:root{
+  --primary-background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+}
+
 body,
 html {
   margin: 0;
@@ -39,7 +43,6 @@ button {
   border-width: 0;
   border-color: none;
   border-style: solid;
-  /* cursor: pointer; */
   border-radius: 0.3em;
   background: white;
 }
@@ -49,7 +52,7 @@ button {
 }
 
 .modal {
-  font-size: 12px;
+  border-radius: .3em;
 }
 .modal > .header {
   width: 100%;
@@ -100,5 +103,13 @@ button {
   border-radius: 0.3em;
   padding: 1.5em;
   box-shadow: 2px 2px 7px 1px rgba(0, 0, 0, 0.4);
-  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  background: var(--primary-background);
+}
+
+.popup-content{
+  border-radius: .3em;
+  background: var(--primary-background) !important;
+  border: none !important;
+  min-width: 30%;
+  width: fit-content !important;
 }

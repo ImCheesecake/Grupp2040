@@ -37,7 +37,7 @@ class App extends Component {
   updateAuctions = searchAuction => {
     if (searchAuction) {
       let searchAuctions = this.state.AllAuctions.filter(item => {
-        if (item.Titel.includes(searchAuction)) {
+        if (item.Titel.toUpperCase().includes(searchAuction.toUpperCase())) {
           return item;
         }
         return null;

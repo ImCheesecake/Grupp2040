@@ -4,10 +4,12 @@ export default class BidHistory extends Component {
   render() {
     const styles = {
       bidHistory: {
-        height: "700px",
+        height: "fit-content",
+        maxHeight: "60vh",
         overflow: "auto",
         margin: "15px",
-        paddingTop: "20px"
+        paddingTop: "20px",
+
       },
       bid: {
         margin: "15px",
