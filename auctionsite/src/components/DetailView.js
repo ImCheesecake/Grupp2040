@@ -16,6 +16,10 @@ export default class DetailView extends Component {
 
   };
 
+  updateDetailView = () => {
+    this.componentDidMount();
+  }
+
   async componentDidMount() {
     var budUrl = "https://nackowskis.azurewebsites.net/api/bud/2040/" + this.props.auctionId;    
     var auctionUrl = "https://nackowskis.azurewebsites.net/api/Auktion/2040/" + this.props.auctionId; 
@@ -53,7 +57,7 @@ export default class DetailView extends Component {
         <div>          
           <ItemInfo auctionDetails={this.state.auctionDetails}/>
           <PopupHistory bidHistory={this.state.bidHistory}/>
-          <PopupUpdate bidHistory={this.state.bidHistory} auctionDetails={this.state.auctionDetails} updateArrays={this.props.updateArrays}/>
+          <PopupUpdate bidHistory={this.state.bidHistory} auctionDetails={this.state.auctionDetails} updateArrays={this.props.updateArrays} updateDetailView= {this.updateDetailView}/>
         </div>
       </div>
     );

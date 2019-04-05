@@ -31,7 +31,7 @@ export default class PopupForm extends Component {
             <i className="close" onClick={this.closeModal}>
               &times;
             </i>
-            <UpdateAuction bidHistory={this.props.bidHistory} auctionDetails={this.props.auctionDetails} updateArrays={this.props.updateArrays} className="animated flipInX fast" />
+            <UpdateAuction bidHistory={this.props.bidHistory} auctionDetails={this.props.auctionDetails} updateArrays={this.props.updateArrays} updateDetailView={this.props.updateDetailView} className="animated flipInX fast" />
           </div>
         </Popup>
       </div>

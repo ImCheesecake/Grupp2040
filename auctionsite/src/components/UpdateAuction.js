@@ -66,6 +66,7 @@ export default class UpdateAuction extends Component {
       });
 
       this.props.updateArrays();
+      this.props.updateDetailView();
   }
 
   render() {
