@@ -15,7 +15,6 @@ export default class Search extends Component {
   //   this.props.updateAuctions(this.state.searchAuction);
   // };
   render() {
-
     const styles = {
       searchFormStyle: {
         borderRadius: ".8em 0 0 .8em",
@@ -24,12 +23,11 @@ export default class Search extends Component {
       },
       buttonStyle: {
         borderRadius: "0 .8em .8em 0",
-        padding: "0 .8em",
+        padding: "0 .8em"
       },
       headerStyle: {
         margin: "auto 0"
-    },
-    
+      }
     };
     return (
       <div style={styles.headerStyle}>
@@ -41,7 +39,9 @@ export default class Search extends Component {
             placeholder="Search..."
             onChange={this.handleChange}
           />
-          <button style={styles.buttonStyle} type="submit">Search</button>
+          <button style={styles.buttonStyle} type="submit">
+            Search
+          </button>
         </form>
       </div>
     );

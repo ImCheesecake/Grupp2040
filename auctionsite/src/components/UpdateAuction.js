@@ -41,29 +41,31 @@ export default class UpdateAuction extends Component {
     });
   };
 
-  handleSubmit = async (e) => {
-      let url = "https://nackowskis.azurewebsites.net/api/Auktion/2040/" + this.props.auctionDetails.AuktionID;
-      e.preventDefault();
+  handleSubmit = async e => {
+    let url =
+      "https://nackowskis.azurewebsites.net/api/Auktion/2040/" +
+      this.props.auctionDetails.AuktionID;
+    e.preventDefault();
 
-      let auction = {
-        AuktionID: this.props.auctionDetails.AuktionID,
-        SlutDatum: moment(this.state.SlutDatum).format("YYYY-MM-DD HH:mm:ss"),
-        StartDatum: moment(this.state.StartDatum).format("YYYY-MM-DD HH:mm:ss"),
-        Titel: this.state.Titel,
-        Beskrivning: this.state.Beskrivning,
-        Utropspris: this.state.Utropspris,
-        Gruppkod: 2040,
-        SkapadAv: this.state.SkapadAv
+    let auction = {
+      AuktionID: this.props.auctionDetails.AuktionID,
+      SlutDatum: moment(this.state.SlutDatum).format("YYYY-MM-DD HH:mm:ss"),
+      StartDatum: moment(this.state.StartDatum).format("YYYY-MM-DD HH:mm:ss"),
+      Titel: this.state.Titel,
+      Beskrivning: this.state.Beskrivning,
+      Utropspris: this.state.Utropspris,
+      Gruppkod: 2040,
+      SkapadAv: this.state.SkapadAv
+    };
+
+    await fetch(url, {
+      method: "PUT",
+      body: JSON.stringify(auction),
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json"
       }
-
-      await fetch(url, {
-        method: "PUT",
-        body: JSON.stringify(auction),
-        headers: {
-          Accept: "application/json, text/plain, */*",
-          "Content-Type": "application/json"
-        }
-      });
+    });
 
       this.props.updateArrays();
       this.props.updateDetailView();

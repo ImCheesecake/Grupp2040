@@ -15,20 +15,20 @@ class App extends Component {
   };
 
   setDetailView = async (value, id) => {
-    if (id !== this.state.auctionId) {      
-      await this.hideDetailView()
-      this.setState( {
+    if (id !== this.state.auctionId) {
+      await this.hideDetailView();
+      this.setState({
         showDetailView: value,
         auctionId: id
-      })
+      });
     }
-  }
+  };
 
   hideDetailView = () => {
     this.setState({
       showDetailView: false
-    })
-  }
+    });
+  };
 
   addNewAuctionToList = () => {
     this.updateArrays();
@@ -37,7 +37,7 @@ class App extends Component {
   updateAuctions = searchAuction => {
     if (searchAuction) {
       let searchAuctions = this.state.AllAuctions.filter(item => {
-        if (item.Titel.includes(searchAuction)) {
+        if (item.Titel.toUpperCase().includes(searchAuction.toUpperCase())) {
           return item;
         }
         return null;
@@ -74,18 +74,23 @@ class App extends Component {
 
   render() {
     return (
-
       <div>
-        <Header updateAuctions={this.updateAuctions} 
-        updateArrays={this.updateArrays}
+        <Header
+          updateAuctions={this.updateAuctions}
+          updateArrays={this.updateArrays}
         />
         <div>
           <AuctionList
-            Auctions={this.state.FilteredAuctions} 
+            Auctions={this.state.FilteredAuctions}
             setDetailView={this.setDetailView}
           />
-          {this.state.showDetailView ? <DetailView updateArrays={this.updateArrays} setDetailView={this.setDetailView} auctionId={this.state.auctionId} /> : null}
-          
+          {this.state.showDetailView ? (
+            <DetailView
+              updateArrays={this.updateArrays}
+              setDetailView={this.setDetailView}
+              auctionId={this.state.auctionId}
+            />
+          ) : null}
         </div>
       </div>
     );

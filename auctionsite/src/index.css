@@ -1,3 +1,6 @@
+:root{
+  --primary-background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+}
 
 body,
 html {
@@ -26,15 +29,13 @@ p {
   margin-block-start: 0;
 }
 
-
-
 input {
   height: 2.5em;
   border: none;
   margin: 0 0.5em;
   border-radius: 0.3em;
-  padding-left: .8em;
-  padding-right: .8em;
+  padding-left: 0.8em;
+  padding-right: 0.8em;
 }
 
 button {
@@ -42,8 +43,7 @@ button {
   border-width: 0;
   border-color: none;
   border-style: solid;
-  /* cursor: pointer; */
-  border-radius: .3em;
+  border-radius: 0.3em;
   background: white;
 }
 
@@ -51,12 +51,12 @@ button {
   background: red !important;
 }
 
-.button:hover{
+.button:hover {
   background-color: #c8c8c8 !important;
 }
 
 .modal {
-  font-size: 12px;
+  border-radius: .3em;
 }
 .modal > .header {
   width: 100%;
@@ -104,9 +104,16 @@ button {
 }
 
 .divCard {
-  border-radius: .3em;
+  border-radius: 0.3em;
   padding: 1.5em;
   box-shadow: 2px 2px 7px 1px rgba(0, 0, 0, 0.4);
-  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  background: var(--primary-background);
+}
 
+.popup-content{
+  border-radius: .3em;
+  background: var(--primary-background) !important;
+  border: none !important;
+  min-width: 30%;
+  width: fit-content !important;
 }
