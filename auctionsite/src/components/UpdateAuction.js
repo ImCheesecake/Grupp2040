@@ -41,6 +41,10 @@ export default class UpdateAuction extends Component {
     });
   };
 
+  handleClose = () => {
+    this.props.closeModal();
+}
+
   handleSubmit = async e => {
     let url =
       "https://nackowskis.azurewebsites.net/api/Auktion/2040/" +
@@ -69,6 +73,7 @@ export default class UpdateAuction extends Component {
 
       this.props.updateArrays();
       this.props.updateDetailView();
+      this.handleClose();
   }
 
   render() {

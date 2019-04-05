@@ -41,6 +41,7 @@ export default class PopupForm extends Component {
               updateArrays={this.props.updateArrays}
               className="animated flipInX fast"
               updateDetailView={this.props.updateDetailView}
+              closeModal={this.closeModal}
             />
           </div>
         </Popup>
