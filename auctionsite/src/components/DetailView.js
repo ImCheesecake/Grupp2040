@@ -41,13 +41,12 @@ export default class DetailView extends Component {
         left: "50%",
         width: "40%",
         height: "400px",
-        backgroundColor: "yellow"
       }
     };
 
     
     return (
-      <div style={styles.detailView} className="detailView animated fadeIn slow">
+      <div style={styles.detailView} className="detailView animated fadeIn slow divCard">
         <i className="close" onClick={this.closeDetailView}>
           &times;
         </i>

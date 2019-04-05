@@ -31,11 +31,8 @@ export default class AuctionItem extends Component {
 
     const styles = {
       auctionItemStyle: {
-        backgroundImage: "linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%)",
         margin: "1em",
-        borderRadius: ".3em",
-        padding: "1.5em",
-        boxShadow: "2px 2px 7px 1px rgba(0, 0, 0, 0.4)"
+        cursor: "pointer",
       },
   
       auctionPlacement: {
@@ -47,7 +44,7 @@ export default class AuctionItem extends Component {
     
     
     return (
-      <div style={styles.auctionItemStyle} onClick={this.openDetailView}>
+      <div style={styles.auctionItemStyle} className="divCard" onClick={this.openDetailView}>
           <h1>{this.props.auctionItem.Titel}</h1>
         <div style={styles.auctionPlacement}>
           <p>Utropspris: {this.props.auctionItem.Utropspris}</p>
