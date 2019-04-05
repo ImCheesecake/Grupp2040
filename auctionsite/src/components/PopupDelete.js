@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Popup from "reactjs-popup";
 import "animate.css";
-import UpdateAuction from './UpdateAuction';
+import DeleteAuction from './DeleteAuction';
 
 export default class PopupForm extends Component {
   state = {
@@ -31,7 +31,11 @@ export default class PopupForm extends Component {
             <i className="close" onClick={this.closeModal}>
               &times;
             </i>
-            <UpdateAuction bidHistory={this.props.bidHistory} auctionDetails={this.props.auctionDetails} updateArrays={this.props.updateArrays} updateDetailView={this.props.updateDetailView} className="animated flipInX fast" />
+            <DeleteAuction 
+            auctionDetails={this.props.auctionDetails} 
+            closeModal={this.closeModal} 
+            updateArrays={this.props.updateArrays} 
+            hideDetailView={this.props.hideDetailView}/>
           </div>
         </Popup>
       </div>
