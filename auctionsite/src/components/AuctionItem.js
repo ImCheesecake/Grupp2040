@@ -41,10 +41,11 @@ export default class AuctionItem extends Component {
       }
     };
 
+
     return (
       <div
         style={styles.auctionItemStyle}
-        className="divCard"
+        className="divCard auctionItem"
         onClick={this.openDetailView}
       >
         <h1>{this.props.auctionItem.Titel}</h1>

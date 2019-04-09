@@ -17,16 +17,13 @@ export default class Header extends Component {
         fontSize: "4em"
       },
       divStyle: {
-        background: "red",
         position: "fixed",
         top: "0",
-        zIndex: "999999",
-        width: "100%",
-        boxShadow: "0 .3em .8em -3px rgba(0, 0, 0, .8)",
-        borderRadius: "0 0 .5em .5em",
+        width: "75%",
         display: "flex",
         justifyContent: "space-evenly",
         padding: ".7em 0",
+        marginLeft: "35em"
       }
     };
 

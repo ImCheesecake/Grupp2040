@@ -62,8 +62,8 @@ export default class DetailView extends Component {
         style={styles.detailView}
         className={
           this.state.active
-            ? "detailView animated fadeOut faster divCard"
-            : "detailView animated fadeIn slow divCard"
+            ? "detailView auctionItem animated fadeOut faster divCard"
+            : "detailView auctionItem animated fadeIn slow divCard"
         }
       >
         <i className="close" onClick={this.closeDetailView}>

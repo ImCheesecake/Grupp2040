@@ -1,4 +1,4 @@
-:root{
+:root {
   --primary-background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
 }
 
@@ -6,8 +6,21 @@ body,
 html {
   margin: 0;
   padding: 0;
-  background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
-  min-height: 91vh;
+  /* background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%); */
+
+}
+
+.bgImage {
+  background-image: url("img/blissthree.jpg");
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: fixed;
+  top: 0;
+  filter: blur(4px);
 }
 
 * {
@@ -56,7 +69,7 @@ button {
 }
 
 .modal {
-  border-radius: .3em;
+  border-radius: 0.3em;
 }
 .modal > .header {
   width: 100%;
@@ -94,24 +107,20 @@ button {
   position: absolute;
   display: block;
   padding: 2px 5px;
+  color: red;
   line-height: 20px;
-  right: -10px;
-  top: -10px;
-  font-size: 24px;
-  background: #ffffff;
-  border-radius: 18px;
-  border: 1px solid #cfcece;
+  right: 4px;
+  top: 4px;
+  font-size: 2rem;
 }
 
 .divCard {
   border-radius: 0.3em;
   padding: 1.5em;
-  box-shadow: 2px 2px 7px 1px rgba(0, 0, 0, 0.4);
-  background: var(--primary-background);
 }
 
-.popup-content{
-  border-radius: .3em;
+.popup-content {
+  border-radius: 0.3em;
   background: var(--primary-background) !important;
   border: none !important;
   min-width: 30%;
@@ -126,4 +135,26 @@ button {
     0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2),
     0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2),
     0 20px 20px rgba(0, 0, 0, 0.15);
+}
+
+.auctionItem {
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);   
+  border-radius: 5px;
+  position: relative;
+  z-index: 1;
+  background: inherit;
+  overflow: hidden;
+}
+
+.auctionItem::before {
+  content: "";
+  position: absolute;
+  background: inherit;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: inset 0 0 2000px rgba(255, 255, 255, .7);
+  margin: -20px;
 }
