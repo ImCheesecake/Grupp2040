@@ -33,26 +33,28 @@ export default class PopupBidHistory extends Component {
   render() {
     return (
       <div>
-        <button
-          className={
-            this.props.bidHistory.length === 0 || this.state.date < moment()
-              ? null
-              : "button"
-          }
-          onClick={this.openModal}
-          disabled={
-            this.props.bidHistory.length === 0 || this.state.date < moment()
-              ? true
-              : false
-          }
-          style={
-            this.props.bidHistory.length === 0 || this.state.date < moment()
-              ? null
-              : { cursor: "pointer" }
-          }
-        >
-          Bid history
-        </button>
+        <div style={{ marginRight: ".5em" }}>
+          <button
+            className={
+              this.props.bidHistory.length === 0 || this.state.date < moment()
+                ? null
+                : "button"
+            }
+            onClick={this.openModal}
+            disabled={
+              this.props.bidHistory.length === 0 || this.state.date < moment()
+                ? true
+                : false
+            }
+            style={
+              this.props.bidHistory.length === 0 || this.state.date < moment()
+                ? null
+                : { cursor: "pointer" }
+            }
+          >
+            Bid history
+          </button>
+        </div>
         <Popup
           open={this.state.open}
           closeOnDocumentClick

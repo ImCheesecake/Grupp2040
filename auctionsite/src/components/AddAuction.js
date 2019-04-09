@@ -91,6 +91,7 @@ export default class AddAuction extends Component {
             name="Titel"
             placeholder="Titel"
             onChange={this.handleChange}
+            required
           />
           <input
             maxLength="250"
@@ -99,6 +100,7 @@ export default class AddAuction extends Component {
             name="Beskrivning"
             placeholder="Beskrivning"
             onChange={this.handleChange}
+            required
           />
           <input
             value={this.state.Utropspris}
@@ -106,6 +108,7 @@ export default class AddAuction extends Component {
             name="Utropspris"
             placeholder="Utropspris"
             onChange={this.handleChange}
+            min="0"
           />
           <input
             maxLength="50"
@@ -114,6 +117,7 @@ export default class AddAuction extends Component {
             name="SkapadAv"
             placeholder="Skapad av"
             onChange={this.handleChange}
+            required
           />
           <DatePicker
             selected={this.state.SlutDatum}

@@ -31,14 +31,16 @@ export default class PopupForm extends Component {
     console.log(this.state.date);
     return (
       <div>
-        <button
-          className={this.props.bidHistory.length ? null : "button"}
-          onClick={this.openModal}
-          disabled={this.props.bidHistory.length ? true : false}
-          style={this.props.bidHistory.length ? null : { cursor: "pointer" }}
-        >
-          Uppdatera auktion
-        </button>
+        <div style={{ marginRight: ".5em" }}>
+          <button
+            className={this.props.bidHistory.length ? null : "button"}
+            onClick={this.openModal}
+            disabled={this.props.bidHistory.length ? true : false}
+            style={this.props.bidHistory.length ? null : { cursor: "pointer" }}
+          >
+            Uppdatera auktion
+          </button>
+        </div>
         <Popup
           open={this.state.open}
           closeOnDocumentClick
