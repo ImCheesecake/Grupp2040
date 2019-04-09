@@ -7,9 +7,13 @@ export default class ItemInfo extends Component {
     return (
       <div>
         <h1>{this.props.auctionDetails.Titel}</h1>
-        <h3>Description: {this.props.auctionDetails.Beskrivning}</h3>
-        <h3>
-          End date:{" "}
+        <h3 style={{ fontWeight: "300" }}>
+          <span style={{ fontWeight: "bold" }}>Description:</span>{" "}
+          {this.props.auctionDetails.Beskrivning}
+        </h3>
+        <h3 style={{ fontWeight: "300" }}>
+          <span style={{ fontWeight: "bold" }}>End date: </span>
+
           {moment(this.props.auctionDetails.SlutDatum).format(
             "ddd, MMM DD HH:mm"
           )}

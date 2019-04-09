@@ -72,7 +72,8 @@ export default class DetailView extends Component {
         <div style={{
           display: "flex",
           flexDirection: "column",
-          justifyContent: "space-between"
+          justifyContent: "space-between",
+          maxWidth: "50%"
         }}>
           <ItemInfo auctionDetails={this.state.auctionDetails} />
           <div style={{ display: "flex" }}>

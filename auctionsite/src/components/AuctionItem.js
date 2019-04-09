@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import moment from "moment";
 import Moment from "react-moment";
 import "moment-timezone";
 import "moment/locale/sv";
