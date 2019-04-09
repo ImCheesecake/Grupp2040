@@ -38,7 +38,7 @@ export default class PopupForm extends Component {
             disabled={this.props.bidHistory.length ? true : false}
             style={this.props.bidHistory.length ? null : { cursor: "pointer" }}
           >
-            Uppdatera auktion
+            Update auction
           </button>
         </div>
         <Popup

@@ -42,14 +42,21 @@ p {
   margin-block-start: 0;
 }
 
-input {
+input, textarea {
   height: 2.5em;
+  width: 20em;
   border: none;
   margin: 0 0.5em;
   border-radius: 0.3em;
   padding-left: 0.8em;
   padding-right: 0.8em;
 }
+
+textarea {
+  height: 5em;
+  width: 20em;
+}
+
 
 button {
   height: 2.2rem;
