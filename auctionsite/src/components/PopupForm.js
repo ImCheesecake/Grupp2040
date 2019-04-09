@@ -38,7 +38,7 @@ export default class PopupForm extends Component {
           onClick={this.openModal}
           style={{ cursor: "pointer" }}
         >
-          Skapa ny popup-auktion
+          Create auction
         </button>
         <Popup
           open={this.state.open}

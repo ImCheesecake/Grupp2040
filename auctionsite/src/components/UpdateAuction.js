@@ -78,52 +78,86 @@ export default class UpdateAuction extends Component {
 
   render() {
     const styles = {
+      // headerStyling: {
+      //   marginTop: "1em",
+      //   display: "flex",
+      //   justifyContent: "center"
+      // },
+
       headerStyling: {
         marginTop: "1em",
         display: "flex",
-        justifyContent: "center"
+        justifyContent: "center",
+        flexDirection: "column",
+        alignItems: "center"
       },
-
-      formStyling: {
-        marginTop: "7em"
+      inputStyling: {
+        margin: "10px 0 0 0",
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center"
+      },
+      buttonStyling: {
+        margin: "20px 0",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center"
       }
     };
     return (
       <div style={styles.headerStyling}>
-        <h3>Update Auction</h3>
-        <form onSubmit={this.handleSubmit} style={styles.formStyling}>
+        <h2>Update Auction</h2>
+        <div>
+        <form onSubmit={this.handleSubmit}>
+          <div style={styles.inputStyling}>
+          <label htmlFor="Titel">Title: </label>
           <input
             maxLength="50"
             value={this.state.Titel}
             type="text"
             name="Titel"
-            placeholder="Titel"
+            placeholder="Title"
             onChange={this.handleChange}
+            required
           />
-
-          <input
+          </div>
+          <div style={styles.inputStyling}>
+          <label htmlFor="Beskrivning">Description: </label>
+          <textarea
             maxLength="250"
             value={this.state.Beskrivning}
             type="text"
             name="Beskrivning"
-            placeholder="Beskrivning"
+            placeholder="Description"
             onChange={this.handleChange}
+            required
           />
+          </div>
+          <div style={styles.inputStyling}>
+          <label htmlFor="Utropspris">Starting price: </label>
           <input
             value={this.state.Utropspris}
             type="number"
             name="Utropspris"
-            placeholder="Utropspris"
+            placeholder="Starting price"
             onChange={this.handleChange}
+            min="0"
           />
+          </div>
+          <div style={styles.inputStyling}>
+          <label htmlFor="SkapadAv">Created by: </label>
           <input
             maxLength="50"
             value={this.state.SkapadAv}
             type="text"
             name="SkapadAv"
-            placeholder="Skapad av"
+            placeholder="Created by"
             onChange={this.handleChange}
+            required
           />
+          </div>
+          <div style={styles.inputStyling}>
+          <label>End date: </label>
           <DatePicker
             selected={this.state.SlutDatum}
             onChange={this.handleDateChange}
@@ -137,8 +171,12 @@ export default class UpdateAuction extends Component {
             dateFormat="yyyy-MM-dd HH:mm"
             timeCaption="time"
           />
-          <button type="submit">Uppdatera auction</button>
+          </div>
+          <div style={styles.buttonStyling}>
+          <button type="submit">Update auction</button>
+          </div>
         </form>
+      </div>
       </div>
     );
   }

@@ -92,58 +92,58 @@ export default class AddAuction extends Component {
 
     return (
       <div style={styles.headerStyling}>
-        <h2>Add auction</h2>
+        <h2>Create auction</h2>
         <div>
           <form onSubmit={this.handleSubmit}>
             <div style={styles.inputStyling}>
-              <label htmlFor="Titel">Titel: </label>
+              <label htmlFor="Titel">Title: </label>
               <input
                 maxLength="50"
                 value={this.state.Titel}
                 type="text"
                 name="Titel"
-                placeholder="Titel"
+                placeholder="Title"
                 onChange={this.handleChange}
                 required
               />
             </div>
             <div style={styles.inputStyling}>
-              <label htmlFor="Beskrivning">Beskrivning: </label>
+              <label htmlFor="Beskrivning">Description: </label>
               <textarea
                 maxLength="250"
                 value={this.state.Beskrivning}
                 type="text"
                 name="Beskrivning"
-                placeholder="Beskrivning"
+                placeholder="Description"
                 onChange={this.handleChange}
                 required
               />
             </div>
             <div style={styles.inputStyling}>
-              <label htmlFor="Utropspris">Utropspris: </label>
+              <label htmlFor="Utropspris">Starting price: </label>
               <input
                 value={this.state.Utropspris}
                 type="number"
                 name="Utropspris"
-                placeholder="Utropspris"
+                placeholder="Starting price"
                 onChange={this.handleChange}
                 min="0"
               />
             </div>
             <div style={styles.inputStyling}>
-              <label htmlFor="SkapadAv">Skapad av: </label>
+              <label htmlFor="SkapadAv">Created by: </label>
               <input
                 maxLength="50"
                 value={this.state.SkapadAv}
                 type="text"
                 name="SkapadAv"
-                placeholder="Skapad av"
+                placeholder="Created by"
                 onChange={this.handleChange}
                 required
               />
             </div>
             <div style={styles.inputStyling}>
-              <label>Slutdatum: </label>
+              <label>End date: </label>
               <DatePicker
                 selected={this.state.SlutDatum}
                 onChange={this.handleDateChange}
@@ -159,7 +159,7 @@ export default class AddAuction extends Component {
               />
             </div>
             <div style={styles.buttonStyling}>
-              <button type="submit">Skapa ny auktion</button>
+              <button type="submit">Create auction</button>
             </div>
           </form>
         </div>
