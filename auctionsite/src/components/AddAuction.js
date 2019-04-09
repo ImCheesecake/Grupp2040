@@ -111,6 +111,7 @@ export default class AddAuction extends Component {
               <label htmlFor="Beskrivning">Description: </label>
               <textarea
                 maxLength="250"
+                style={{ resize: "none", height: "10em" }}
                 value={this.state.Beskrivning}
                 type="text"
                 name="Beskrivning"

@@ -48,10 +48,10 @@ export default class DetailView extends Component {
     const styles = {
       detailView: {
         position: "fixed",
-        top: "20%",
+        top: "30%",
         left: "40%",
         width: "45%",
-        height: "fit-content",
+        height: "300px",
         display: "flex",
         justifyContent: "space-between"
       }
@@ -62,14 +62,18 @@ export default class DetailView extends Component {
         style={styles.detailView}
         className={
           this.state.active
-            ? "detailView auctionItem animated fadeOut faster divCard"
-            : "detailView auctionItem animated fadeIn slow divCard"
+            ? "detailView animated fadeOut faster divCard"
+            : "detailView animated fadeIn slow divCard"
         }
       >
         <i className="close" onClick={this.closeDetailView}>
           &times;
         </i>
-        <div>
+        <div style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between"
+        }}>
           <ItemInfo auctionDetails={this.state.auctionDetails} />
           <div style={{ display: "flex" }}>
             <PopupHistory

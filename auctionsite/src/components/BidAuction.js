@@ -116,6 +116,7 @@ export default class BidAuction extends Component {
                 value={this.state.Budgivare}
                 onChange={this.handleChange}
                 maxLength="50"
+                required
               />
             </div>
             <div style={{ alignSelf: "flex-end", marginRight: "6.66667px" }}>
