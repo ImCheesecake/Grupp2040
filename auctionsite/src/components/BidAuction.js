@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import moment from "moment";
+import "moment-timezone";
+import "moment/locale/sv";
 
 export default class BidAuction extends Component {
   state = {
@@ -78,7 +81,12 @@ export default class BidAuction extends Component {
         flexDirection: "column"
       }
     };
-
+    console.log("props")
+    console.log(this.props.auctionDetails.SlutDatum)
+    console.log("slutdatum")
+    console.log(moment(this.props.auctionDetails.SlutDatum).format("MM-DD HH:mm"));
+    console.log("nu")
+    console.log(moment().format("MM-DD HH:mm"));
     return (
       <div>
         <div>
@@ -120,7 +128,7 @@ export default class BidAuction extends Component {
               />
             </div>
             <div style={{ alignSelf: "flex-end", marginRight: "6.66667px" }}>
-              <button type="submit">Bid</button>
+              <button type="submit" disabled={moment(this.props.auctionDetails.SlutDatum).toDate() < moment().toDate() ? true : false}>Bid</button>
             </div>
           </form>
         </div>
