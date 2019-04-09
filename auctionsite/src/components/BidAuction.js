@@ -18,14 +18,6 @@ export default class BidAuction extends Component {
 
   handleSubmit = async e => {
     e.preventDefault();
-<<<<<<< HEAD
-    if (this.state.Bud > this.state.Utropspris) {
-      await this.updateAuctionPrice();
-      this.props.updateDetailView();
-    } else {
-      alert("Idiot du kan ju inte buda lägre än maxbudet fattar du väl");
-    }
-=======
     await this.updateAuctionPrice();
     this.props.updateDetailView();
     // if (this.state.Bud > this.state.Utropspris) {
@@ -34,7 +26,6 @@ export default class BidAuction extends Component {
     // } else {
     //   alert("Idiot du kan ju inte buda lägre än maxbudet fattar du väl");
     // }
->>>>>>> master
   };
 
   handleChange = e => {
@@ -114,10 +105,7 @@ export default class BidAuction extends Component {
                 type="number"
                 value={this.state.Bud}
                 onChange={this.handleChange}
-<<<<<<< HEAD
-=======
                 min={this.state.Utropspris +1}
->>>>>>> master
               />
             </div>
             <div
