@@ -75,21 +75,24 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Header updateAuctions={this.updateAuctions} 
-        updateArrays={this.updateArrays}
-        hideDetailView={this.hideDetailView}
+        <Header
+          updateAuctions={this.updateAuctions}
+          updateArrays={this.updateArrays}
+          hideDetailView={this.hideDetailView}
         />
         <div>
           <AuctionList
             Auctions={this.state.FilteredAuctions}
             setDetailView={this.setDetailView}
           />
-          {this.state.showDetailView ? <DetailView 
-                                        updateArrays={this.updateArrays} 
-                                        setDetailView={this.setDetailView}
-                                        auctionId={this.state.auctionId} 
-                                        hideDetailView={this.hideDetailView}/> : null}
-          
+          {this.state.showDetailView ? (
+            <DetailView
+              updateArrays={this.updateArrays}
+              setDetailView={this.setDetailView}
+              auctionId={this.state.auctionId}
+              hideDetailView={this.hideDetailView}
+            />
+          ) : null}
         </div>
       </div>
     );

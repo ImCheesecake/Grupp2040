@@ -15,7 +15,7 @@ export default class Search extends Component {
     const styles = {
       searchFormStyle: {
         borderRadius: ".8em",
-        margin: "0",
+        margin: "0"
       },
       headerStyle: {
         margin: "auto 0"
@@ -23,13 +23,13 @@ export default class Search extends Component {
     };
     return (
       <div style={styles.headerStyle}>
-          <input
-            style={styles.searchFormStyle}
-            type="text"
-            name="searchAuction"
-            placeholder="Search..."
-            onChange={this.handleChange}
-          />
+        <input
+          style={styles.searchFormStyle}
+          type="text"
+          name="searchAuction"
+          placeholder="Search..."
+          onChange={this.handleChange}
+        />
       </div>
     );
   }

@@ -26,8 +26,7 @@ export default class PopupForm extends Component {
           className={this.props.bidHistory.length ? null : "button red"}
           onClick={this.openModal}
           disabled={this.props.bidHistory.length ? true : false}
-          style={this.props.bidHistory.length ? null: {cursor: "pointer"}}
-          
+          style={this.props.bidHistory.length ? null : { cursor: "pointer" }}
         >
           Delete auction
         </button>

@@ -8,8 +8,7 @@ export default class BidHistory extends Component {
         maxHeight: "60vh",
         overflow: "auto",
         margin: "15px",
-        paddingTop: "20px",
-
+        paddingTop: "20px"
       },
       bid: {
         margin: "15px",
