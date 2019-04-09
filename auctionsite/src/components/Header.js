@@ -23,7 +23,8 @@ export default class Header extends Component {
         display: "flex",
         justifyContent: "space-evenly",
         padding: ".7em 0",
-        marginLeft: "35em"
+        marginLeft: "35em",
+        zIndex: "99999999"
       }
     };
 
