@@ -23,15 +23,31 @@ export default class DeleteAuction extends Component {
   };
 
   render() {
+    const styles = {
+      deleteAuction: {
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center"
+      },
+      buttonLayout: {
+        display:"flex",
+        width: "60%",
+        justifyContent: "space-evenly",
+        marginBottom: "1em"
+      },
+      
+    };
     return (
-      <div>
+      <div style={styles.deleteAuction}>
         <h3>Are you sure you want to delete this auction?</h3>
-        <button onClick={this.handleDelete} style={{ cursor: "pointer" }}>
-          Yes
-        </button>
-        <button onClick={this.handleClose} style={{ cursor: "pointer" }}>
-          No
-        </button>
+        <div style={styles.buttonLayout}>
+          <button onClick={this.handleDelete} style={{ cursor: "pointer", minWidth: "50px" }}>
+            Yes
+          </button>
+          <button onClick={this.handleClose} style={{ cursor: "pointer", minWidth: "50px" }}>
+            No
+          </button>
+        </div>
       </div>
     );
   }

@@ -29,7 +29,7 @@ export default class Header extends Component {
 
     return (
       <div style={styles.divStyle}>
-        <h1 style={styles.testStyle} className="titleText" onClick={this.handleClick}>Auction Site</h1>
+        <h1 style={styles.testStyle} className="titleText" onClick={this.handleClick}>Not Tradera</h1>
         <Search updateAuctions={this.props.updateAuctions} />
         <Popup updateArrays={this.props.updateArrays} />
       </div>
