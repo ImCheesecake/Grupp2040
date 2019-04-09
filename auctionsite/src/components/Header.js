@@ -4,12 +4,11 @@ import "animate.css";
 import Popup from "./PopupForm";
 
 export default class Header extends Component {
-
-  handleClick = async () => {    
-    window.scrollTo(0,0);
+  handleClick = async () => {
+    window.scrollTo(0, 0);
     this.props.updateArrays();
     this.props.hideDetailView();
-  }
+  };
   render() {
     const styles = {
       testStyle: {
@@ -26,13 +25,19 @@ export default class Header extends Component {
         borderRadius: "0 0 .5em .5em",
         display: "flex",
         justifyContent: "space-evenly",
-        padding: ".7em 0",
+        padding: ".7em 0"
       }
     };
 
     return (
       <div style={styles.divStyle}>
-        <h1 style={styles.testStyle} className="animated rubberBand delay-5s" onClick={this.handleClick}>Auction Site</h1>
+        <h1
+          style={styles.testStyle}
+          className="animated rubberBand delay-5s"
+          onClick={this.handleClick}
+        >
+          Auction Site
+        </h1>
         <Search updateAuctions={this.props.updateAuctions} />
         <Popup updateArrays={this.props.updateArrays} />
       </div>

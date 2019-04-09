@@ -20,12 +20,6 @@ export default class BidAuction extends Component {
     e.preventDefault();
     await this.updateAuctionPrice();
     this.props.updateDetailView();
-    // if (this.state.Bud > this.state.Utropspris) {
-    //   await this.updateAuctionPrice();
-    //   this.props.updateDetailView();
-    // } else {
-    //   alert("Idiot du kan ju inte buda lägre än maxbudet fattar du väl");
-    // }
   };
 
   handleChange = e => {
@@ -105,7 +99,7 @@ export default class BidAuction extends Component {
                 type="number"
                 value={this.state.Bud}
                 onChange={this.handleChange}
-                min={this.state.Utropspris +1}
+                min={this.state.Utropspris + 1}
               />
             </div>
             <div

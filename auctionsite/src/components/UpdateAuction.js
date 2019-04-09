@@ -43,7 +43,7 @@ export default class UpdateAuction extends Component {
 
   handleClose = () => {
     this.props.closeModal();
-}
+  };
 
   handleSubmit = async e => {
     let url =
@@ -71,10 +71,10 @@ export default class UpdateAuction extends Component {
       }
     });
 
-      this.props.updateArrays();
-      this.props.updateDetailView();
-      this.handleClose();
-  }
+    this.props.updateArrays();
+    this.props.updateDetailView();
+    this.handleClose();
+  };
 
   render() {
     const styles = {
