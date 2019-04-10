@@ -20,10 +20,10 @@ export default class Header extends Component {
         top: "0",
         width: "75%",
         display: "flex",
-        justifyContent: "space-evenly",
+        justifyContent: "space-around",
         padding: ".7em 0",
-        marginLeft: "35em",
-        zIndex: "99999999"
+        zIndex: "99999999",
+        right: "0"
       }
     };
 

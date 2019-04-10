@@ -15,16 +15,21 @@ export default class Search extends Component {
     const styles = {
       searchFormStyle: {
         borderRadius: ".8em",
-        margin: "0"
+        margin: "0",
+        width: "7em"
       },
       headerStyle: {
-        margin: "auto 0"
+        margin: "auto 0",
+        width: "20em",
+        display: "flex",
+        justifyContent: "space-evenly"
       }
     };
     return (
       <div style={styles.headerStyle}>
         <input
-          style={styles.searchFormStyle}
+          // style={styles.searchFormStyle}
+          className="search"
           type="text"
           name="searchAuction"
           placeholder="Search..."

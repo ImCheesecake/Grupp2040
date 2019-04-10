@@ -35,6 +35,29 @@ input[type="number"]::-webkit-outer-spin-button {
   margin: 0;
 }
 
+.search{
+  font-size: 1rem;
+  background: transparent;
+  width: 25px;
+  height: 25px;
+  padding: 10px;
+  border: solid 3px white;
+  outline: none;
+  border-radius: 35px;
+  /* box-shadow: 0 1px #0091c2; */
+  transition: width 0.5s;
+}
+.search::placeholder {
+  opacity: 0;
+}
+.search:focus::placeholder {
+  color: white;
+  opacity: 1;
+}
+.search:focus, .search:hover{
+  width: 100%
+}
+
 h1,
 p {
   margin-block-end: 0;
