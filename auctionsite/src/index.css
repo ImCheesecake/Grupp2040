@@ -35,7 +35,7 @@ input[type="number"]::-webkit-outer-spin-button {
   margin: 0;
 }
 
-.search{
+.search {
   font-size: 1rem;
   background: transparent;
   width: 25px;
@@ -50,12 +50,14 @@ input[type="number"]::-webkit-outer-spin-button {
 .search::placeholder {
   opacity: 0;
 }
-.search:focus::placeholder {
+.search:focus::placeholder,
+.search:hover::placeholder {
   color: white;
   opacity: 1;
 }
-.search:focus, .search:hover{
-  width: 100%
+.search:focus,
+.search:hover {
+  width: 100%;
 }
 
 h1,
