@@ -69,12 +69,15 @@ export default class DetailView extends Component {
         <i className="close" onClick={this.closeDetailView}>
           &times;
         </i>
-        <div style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
-          maxWidth: "50%"
-        }}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+            maxWidth: "50%",
+            marginRight: "1.5em"
+          }}
+        >
           <ItemInfo auctionDetails={this.state.auctionDetails} />
           <div style={{ display: "flex" }}>
             <PopupHistory

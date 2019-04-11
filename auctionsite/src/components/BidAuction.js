@@ -88,7 +88,7 @@ export default class BidAuction extends Component {
     console.log("nu")
     console.log(moment().format("MM-DD HH:mm"));
     return (
-      <div>
+      <div style={{marginLeft: "1.5em"}}>
         <div>
           <h4>Current top bid: {this.state.Utropspris} kr</h4>
         </div>
@@ -101,7 +101,7 @@ export default class BidAuction extends Component {
                 marginBottom: ".3em"
               }}
             >
-              <label style={{ alignSelf: "center" }}>Bud: </label>
+              <label style={{ alignSelf: "center" }}>Bid: </label>
               <input
                 name="Bud"
                 type="number"
@@ -117,7 +117,7 @@ export default class BidAuction extends Component {
                 marginBottom: ".3em"
               }}
             >
-              <label style={{ alignSelf: "center" }}>Budgivare: </label>
+              <label style={{ alignSelf: "center" }}>Bidder: </label>
               <input
                 name="Budgivare"
                 type="text"
