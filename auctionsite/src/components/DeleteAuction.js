@@ -41,10 +41,10 @@ export default class DeleteAuction extends Component {
       <div style={styles.deleteAuction}>
         <h3>Are you sure you want to delete this auction?</h3>
         <div style={styles.buttonLayout}>
-          <button onClick={this.handleDelete} style={{ cursor: "pointer", minWidth: "50px" }}>
+          <button onClick={this.handleDelete} style={{ cursor: "pointer"}} className="button">
             Yes
           </button>
-          <button onClick={this.handleClose} style={{ cursor: "pointer", minWidth: "50px" }}>
+          <button onClick={this.handleClose} style={{ cursor: "pointer" }} className="button">
             No
           </button>
         </div>
