@@ -37,9 +37,9 @@ export default class AuctionItem extends Component {
       >
         <h1>{this.props.auctionItem.Titel}</h1>
         <div style={styles.auctionPlacement}>
-          <p>Utropspris: {this.props.auctionItem.Utropspris}</p>
+          <p>Current bid: {this.props.auctionItem.Utropspris}</p>
           <p>
-            Slutdatum: <Moment interval={10000} to={this.state.date} />{" "}
+            End date: <Moment interval={10000} to={this.state.date} />{" "}
           </p>
         </div>
       </div>
