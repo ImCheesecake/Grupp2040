@@ -18,7 +18,7 @@ export default class AuctionItem extends Component {
     const styles = {
       auctionItemStyle: {
         margin: "1em",
-        cursor: "pointer"
+        cursor: "pointer",
       },
 
       auctionPlacement: {
@@ -27,7 +27,6 @@ export default class AuctionItem extends Component {
         paddingTop: "1.5em"
       }
     };
-
 
     return (
       <div
