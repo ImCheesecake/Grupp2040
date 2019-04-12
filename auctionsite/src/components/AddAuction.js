@@ -148,7 +148,7 @@ export default class AddAuction extends Component {
               <DatePicker
                 selected={this.state.SlutDatum}
                 onChange={this.handleDateChange}
-                minDate={this.state.StartDatum}
+                minDate={moment().toDate()}
                 maxDate={moment()
                   .add(30, "days")
                   .toDate()}
